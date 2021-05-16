@@ -11,12 +11,11 @@ The live site can be accessed [*here*]().
 
 ## Table of Contents
 1. [Strategic Purpose Overview](#strategic-purpose-overview)
-    *[Design Simulation](#design-simulation)
+    * [Design Simulation](#design-simulation)
 2. [User Experience Design](#user-experience-design)
    * [User Stories](#user-stories)
-   * [Business Objective](#business-objective)
     *  [Design](#design)
-        * [Structure](#structure)
+        * [Scope and Structure](#scope-and-structure)
         * [Wireframes](#Wireframes)
         * [Database Structure](#database-structure)
         * [Color Scheme](#color-scheme)
@@ -39,3 +38,242 @@ The live site can be accessed [*here*]().
     * [Images](#Images)
     * [Code](#Code)
     * [Acknowledgements](#Acknowledgements)
+
+## Strategic Purpose Overview
+
+Booknook is an online community where by non-members can view book recommendations and find links to where they can purchase these books. Members will be able to create, read, update and delete data they share via creating their own book reviews and commenting on other members reviews. This data will be searchable for all users. The site admin will in theory benefit from affiliated links they provide on their own reviews.
+
+Booknook is a fully responsive fullstack frontend data driven application using MongoDB, Python, Materialize, Flask Framework, HTML, Javascript and CSS, based on the principles of UX design. The data will be stored in a non-relational database (MongoDB) and the site is hosted by Heroku, a cloud based hosting platform.
+
+### Design Simulation
+
+A simulation of the website on desktop and mobile devices can be seen below.
+
+![Design Simulation](url)
+
+The live site can be accessed [*here*]().
+
+*Please note: To open any links in this document in a new browser tab, please press `CTRL + Click`.*
+
+## User Experience Design
+
+### User Stories
+
+#### Anonoumous User
+
+| **As an anonoumous I would like to ** : |  **So that I can**  : |
+| ------------- |:-------------:|
+| easily understand the main purpose of the site | determine if it is what I need |
+| use an aesthetically pleasing site| enjoy my user experience |
+| easily navigate the site| quickly find what I need |
+| find information is clearly presented | absorb it with minimal effort |
+| have features load quickly | save time |
+| view the site on different screen sizes| use it on a desktop or on the go |
+| view/search book reviews and comments | find books to read |
+| see links to purchase these books | easily purchase with minimal effort |
+
+
+#### Registered User
+
+A registered users goals are in addition to the above mentioned user goals.
+
+| **As a registered user I would like to ** : |  **So that I can**  : |
+| ------------- |:-------------:|
+| upload my own reviews | share my recommendations with the community |
+| add affiliated links to my reviews | potentially earn from my uploads |
+| edit and delete content I have provided | manage my comments and reviews over time |
+| login to a secure profile account | view and manage my uploads in one location |
+| comment on others book reviews | so that I can interact and advise community members |
+
+## Design
+
+### Scope and Structure
+
+**Scope**
+
+* Responsive Design 
+* Informative Landing Page
+* Sticky top Nav Bar & Mobile Side Nav Bar 
+* MongoDB database to store all uploaded data/content
+* CRUD functionality
+* Login/Logout functionality
+* Profile page
+* Search functionality
+
+**Skeleton**
+
+This site will be made up of 8 different templates which will feed into a base template, creating what appears to be 8 seperate pages.
+The pages will all have a 'sticky' top nav bar displaying menu items either in text or will be an icon with a slide out menu on mobile devices.
+All pages will have a footer displaying copywrite information and social icons.
+
+**Information Architecture**
+
+The nav bar to an anon user will display a tab to search and an option to login/register, to a logged in user the search tab will display along side an 'add' tab (to add a book) and next to that a profile tab and logout tab.
+
+The landing page will consist of a large hero image with a text introduction of the site's offering or purpose.
+
+Login, registration, add/edit a book and add comment pages will all consist of forms with varying inputs dependant on the purpose of the form.
+
+The profile page will display user information and book reviews they have uploaded. These reviews will display on cards with a button to edit
+
+The search page will display a search bar and below that existing books will display on cards. Each card will have a link to view the review.
+
+The review page will display a books title, image, author, link to purchase on a third party site and a short review. Below the book review a section holding comments left by registered users will be displayed on collapsable cards.
+
+**Interaction Design**
+
+The nav bar items will highlight on hover.
+
+The user will be able to interact with the data on the search page by searching for a title, books will display below the search bar if found or a flash message with an error if not found.
+
+All forms will protect against empty inputs and input format criteria where applicable with the user of colour and/or error messages.
+
+Successful uploads and deletion of data will be conveyed to the user with flash messages.
+
+### Wireframes
+A mock-up of how the site will be laid out is available here via [Wire Frames](TBC).
+
+### Database Structure
+
+[Database Structure](TBA)
+
+As shown in the link, the database structure is separated into 3 collections,
+
+ > Users
+ > Book Reviews
+ > Comments
+
+Users sign up with a name, email, password and username, this is saved in MongoDB with a unique identifier number or 'primary key'.
+
+Book reviews hold book title, author, the review, the primary key of the review creator and are stored with a primary key. 
+
+Comments hold the comment string, a date stamp (to help order the posts) the comment creator's primary key and the primary key of the book they commented on.
+
+### Color Scheme
+![Color Swatch]()
+The above color swatch shows a guideline for the color scheme of the site. 
+
+Colors are brand colours that have been adopted for their strong visual contrast in an atempt to make all content as easily consumable and suitable for visually impared users as possible.
+
+### Typography
+
+The Roboto Mono font, created by *Christian Robertson* for [Google Fonts](https://fonts.google.com/specimen/Roboto+Mono#about) will be the main font for all headings
+and content, alternating between 300 light, 400 regular and bold. 
+
+![Roboto Mono Font](TBC)
+
+### Imagery
+
+The hero image on the landing page was located at a platform, [vectorstock.com](https://www.vectorstock.com/). 
+
+Book images are provided by open sourced http links of the images address. 
+
+The logo was created using [canva.com](https://www.canva.com/). For a detailed list of 
+photographers and sources please see the [credits](#credits) section.
+
+### Design Limitations
+
+A future features I would like to incorrporate are:
+
+>  * an option to update and edit user information, to reset forgotten passwords
+>  * a totals table on the users profile page that shows total afffiliated links clicked by other users and possible revenue earned
+
+### Design Differences from Conception
+
+TBA
+
+## Features
+
+1. Responsive to different screen sizes.
+2. Supported by Chrome, Microsoft Edge, and Firefox browsers.
+3. Adapted for users with special accessibility requirements where possible.
+4. There will be 8 pages: Home page, Search page, Profile page, Login page, Registration page, Add/Edit Book page, Review Page, Add Comment page.
+
+        - Each page will have a navigation header
+        - Each page will have a footer
+        - Each page will have a favicon on the browser tab
+
+5. Each page will have a 'sticky' navbar
+
+        - White with black text
+        - Text logo on the left
+        - Menu options on the right
+        - The logo will route back to the home page
+        - Menu options will change to red on hover
+        - On mobile devices, the menu items will switch to a toggle button and slide in from the right when button is clicked
+        - The menu items will have the same styling in the toggle view
+
+ 6. The home page will have:
+
+        - A hero image.
+        - Informative text overlay on the hero image
+
+7. The login/register page will have:
+
+        - A form requesting user information and submission button
+
+8. The profile page will have: 
+
+        - An area displaying the users information
+        - An area displaying books the user has already added with an option to edit these uploads
+
+9. The add/edit page will have a form that has: 
+
+        - blank fields for adding information
+        - prepopulated fields for editing
+        - an edit button which saves changes
+        - a delete button that will remove the object from the site/database
+
+10. The search page will have a:
+
+        - search bar allowing users to search by title
+        - reset button to clear the last search
+        - an error message for an unsuccessfull search
+        - a section displaying existing books on cards
+        - each book card will have a link to its review page
+
+11. The review page will have:
+
+    - a section displaying the book information and review
+    - a section displaying users comments related to the displayed book
+    - logged in members will see an option to delete their comments or to add a new comment
+
+12. The add comments page will have:
+
+    - a form to add a comment
+    - a submission and cancel button
+
+ ## Technologies
+
+ ### Languages
+
+ - [HTML5](https://www.w3schools.com/html/html_intro.asp)
+ - [CSS3](https://www.w3schools.com/css/css_intro.asp)
+ - [JavaScript](https://www.w3schools.com/js/js_intro.asp)
+ - [Python](https://www.w3schools.com/python/python_intro.asp)
+
+  ### Frameworks & Libraries
+
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/) functionality
+- [Materialize](https://materializecss.com/) Styling and components
+- [Font Awesome](https://fontawesome.com/v4.7.0/) Used for icons
+- [Google Fonts](https://fonts.google.com/) Used to import fonts.
+
+### Programmes & Tools
+
+- [Balsamiq](https://balsamiq.com/) Used to create wireframes/mock-up during the planning & design process
+- [Git Hub](https://github.com/about) Used to store, version control, and to share the project's code
+- [Git/GitPod](https://www.gitpod.io/#:~:text=Gitpod%20is%20a%20multi%2Dservice,their%20own%20dedicated%20K8s%20deployment.) Code, build, debug and run K8s applications    entirely in the cloud.
+- [Canva](https://www.canva.com/) For the creation of the logo
+- [Adobe Color Wheel](https://color.adobe.com) Image gradient feature was used to extract colors used in the logo and build a colour scheme
+- [Am I Responsive](http://ami.responsivedesign.is/) Used to check responsivity of code and display the mock-up in the documentation
+- [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools) Used to test and optimize the site
+
+### Sources
+
+_General sources of information for structure functionality and styling._
+
+- [MDN Web Docs](https://developer.mozilla.org/)
+- [W3 Schools](https://www.w3schools.com/js/default.asp)
+- Code Institute, Full Stack Development course material.
+- [Stack Over Flow](https://stackoverflow.com/)
