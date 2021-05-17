@@ -36,7 +36,7 @@ The live site can be accessed [*here*]().
     * [Testing Premise](#testing-premise)
     * [Bugs and Fixes](#bugs-and-fixes)
 6. [Deployment](#deployment)
-    * [To deploy your application to Heroku](#to-deploy-your-application-to-heroku)
+    * [Deployment via Heroku](#deployment-via-heroku)
     * [Making a clone in GitPod](#making-a-Clone-in-GitPod)
 7. [Credits](#credits)
     * [Images](#Images)
@@ -292,8 +292,6 @@ _General sources of information for structure functionality and styling._
 
 ## Deployment
 
-### Creation and Version Control
-
 This application was created and controlled using GitHub and GitPod workspace.
 
 A Code Institute template was used for the initial creation of this repository which can be found [here](https://github.com/Code-Institute-Org/gitpod-full-template).
@@ -301,7 +299,7 @@ To use this template to create a similar project simply click 'Use Template' at 
 repositry using this template. Once named, you can decide whether to make the 'repo' public or private, my version is public. Then select 'Create Repository'.
 The 'repo' should then open and you can begin working on it by selecting the green GitPod button on the top right of the repo. The GitPod button will open your workspace.
 
-### Deployment
+### Deployment via Heroku
 
 ["Heroku is a container-based cloud Platform as a Service (PaaS). Developers use Heroku to deploy, manage, and scale modern apps"](https://www.heroku.com/about#:~:text=Heroku%20is%20a%20container%2Dbased,manage%2C%20and%20scale%20modern%20apps.&text=Heroku%20is%20fully%20managed%2C%20giving,servers%2C%20hardware%2C%20or%20infrastructure.) Before you deploy to Heroku you will need to add a requirements.txt file and a Procfile to your application. Heroku needs both of these files to run, they must be pushed to the repository on GitHub.
 
@@ -328,7 +326,7 @@ The 'repo' should then open and you can begin working on it by selecting the gre
 13. In manual deploy section select the branch you wish to deploy from the drop down and click deploy branch
 14. This will take a few moments, once complete and option to view the live app will appear
 
-**Make a clone on GitPod**
+### Make a clone on GitPod
 
 1. Select the Repo you wish to clone in GitHub
 2. Click on the code dropdown button
