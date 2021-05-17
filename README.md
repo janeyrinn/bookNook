@@ -95,7 +95,7 @@ A registered users goals are in addition to the above mentioned user goals.
 * Informative Landing Page
 * Sticky top Nav Bar & Mobile Side Nav Bar 
 * MongoDB database to store all uploaded data/content
-* CRUD functionality
+* CRUD functionality through books and comments
 * Login/Logout functionality
 * Profile page
 * Search functionality
