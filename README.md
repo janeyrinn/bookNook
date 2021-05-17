@@ -18,6 +18,7 @@ The live site can be accessed [*here*]().
         * [Scope and Structure](#scope-and-structure)
         * [Wireframes](#Wireframes)
         * [Database Structure](#database-structure)
+        * [Security](#security)
         * [Color Scheme](#color-scheme)
         * [Typography](#typography)
         * [Imagery](#imagery)
@@ -148,6 +149,10 @@ Users sign up with a name, email, password and username, this is saved in MongoD
 Book reviews hold book title, author, the review, the primary key of the review creator and are stored with a primary key. 
 
 Comments hold the comment string, a date stamp (to help order the posts) the comment creator's primary key and the primary key of the book they commented on.
+
+### Security
+
+During development sensitive data, such as database configuration variables, were saved in an [env.py](https://pypi.org/project/env.py/) file. This file  is not uploaded to GitHub for security purposes. These details are stored on Heroku once the site has reached the deployment stage. 
 
 ### Color Scheme
 ![Color Swatch]()
