@@ -27,6 +27,10 @@ The live site can be accessed [*here*]().
 3. [Features](#features)
     * [Existing Features](#existing-features)
 4. [Technologies](#technologies)
+    * [Languages](#languages)
+    * [Frameworks and Libraries](#frameworks-and-libraries)
+    * [Programmes and Tools](#Programmes-and-tools)
+    * [Sources](#sources)
 5. [Testing](#testing)
     * [Code Validity](#code-validity)
     * [Testing Premise](#testing-premise)
@@ -257,14 +261,14 @@ TBA
  - [JavaScript](https://www.w3schools.com/js/js_intro.asp)
  - [Python](https://www.w3schools.com/python/python_intro.asp)
 
-  ### Frameworks & Libraries
+  ### Frameworks and Libraries
 
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/) functionality
 - [Materialize](https://materializecss.com/) Styling and components
 - [Font Awesome](https://fontawesome.com/v4.7.0/) Used for icons
 - [Google Fonts](https://fonts.google.com/) Used to import fonts.
 
-### Programmes & Tools
+### Programmes and Tools
 
 - [Balsamiq](https://balsamiq.com/) Used to create wireframes/mock-up during the planning & design process
 - [Git Hub](https://github.com/about) Used to store, version control, and to share the project's code
