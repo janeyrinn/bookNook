@@ -36,9 +36,8 @@ The live site can be accessed [*here*]().
     * [Testing Premise](#testing-premise)
     * [Bugs and Fixes](#bugs-and-fixes)
 6. [Deployment](#deployment)
-    * [Creation and Version Control](#creation-and-version-control)
-    * [Deployment to Heroku](#deployment-to-heroku)
-    * [Making a Clone in GitPod](#making-a-Clone-in-GitPod)
+    * [To deploy your application to Heroku](#to-deploy-your-application-to-heroku)
+    * [Making a clone in GitPod](#making-a-Clone-in-GitPod)
 7. [Credits](#credits)
     * [Images](#Images)
     * [Code](#Code)
@@ -287,3 +286,56 @@ _General sources of information for structure functionality and styling._
 - [W3 Schools](https://www.w3schools.com/js/default.asp)
 - Code Institute, Full Stack Development course material.
 - [Stack Over Flow](https://stackoverflow.com/)
+
+## Testing
+
+
+## Deployment
+
+### Creation and Version Control
+
+This application was created and controlled using GitHub and GitPod workspace.
+
+A Code Institute template was used for the initial creation of this repository which can be found [here](https://github.com/Code-Institute-Org/gitpod-full-template).
+To use this template to create a similar project simply click 'Use Template' at the top of the repository. You will be directed to name your own
+repositry using this template. Once named, you can decide whether to make the 'repo' public or private, my version is public. Then select 'Create Repository'.
+The 'repo' should then open and you can begin working on it by selecting the green GitPod button on the top right of the repo. The GitPod button will open your workspace.
+
+### Deployment
+
+["Heroku is a container-based cloud Platform as a Service (PaaS). Developers use Heroku to deploy, manage, and scale modern apps"](https://www.heroku.com/about#:~:text=Heroku%20is%20a%20container%2Dbased,manage%2C%20and%20scale%20modern%20apps.&text=Heroku%20is%20fully%20managed%2C%20giving,servers%2C%20hardware%2C%20or%20infrastructure.) Before you deploy to Heroku you will need to add a requirements.txt file and a Procfile to your application. Heroku needs both of these files to run, they must be pushed to the repository on GitHub.
+
+**To deploy your application to Heroku**
+
+1. Go to [Heroku.com](https://id.heroku.com/login) and login or create and account.
+2. Your dashboard should open and there will be a 'New' button on the top-right of the screen, select this.
+3. Select 'Create New App' from the buttons drop down menu
+4. Add your app name (it must be unique, lowercase with a dash used instead of spaces)
+5. Select the region closest to you and click create app
+6. You will then need to connect your GitHub Repository, in the deploy tab, under method, select "Connect to GitHub".
+7. Connect your GitHub account, ensure the correct profile name is displayed
+8. Then add your repository name, search and select the correct repository
+9. Open the settings tab and select 'Reveal Config Vars'
+10. You will need to add here, any secret or hidden variables that are not visable to Heroku from your GitHub repository.
+    > * IP : "0.0.0.0"
+    > * PORT : "5000"
+    > * MONGO_DBNAME : "(Insert the database name you wish to connect to)"
+    > * MONGO_URI : "(Insert URI)" - The URI can be found on MongoDB under Clusters, "Connect" > "Connect your application" 
+    and replacing the generic values with your user name and password
+    > * SECRET_KEY : "(Insert custom secret key you created in configuration to keep the sessions secure)
+11. Hide Con Fig Vars and reopen the deploy tab
+12. Under automatic deployment enable automatic deployment
+13. In manual deploy section select the branch you wish to deploy from the drop down and click deploy branch
+14. This will take a few moments, once complete and option to view the live app will appear
+
+**Make a clone on GitPod**
+
+1. Select the Repo you wish to clone in GitHub
+2. Click on the code dropdown button
+3. Copy the https link to your clipboard
+4. Open your gitpod workspace
+5. In the terminal type "git clone" and paste the copied link
+6. Hit enter to create the clone
+7. To install the required packages type pip install -r requirements.txt into the command line
+8. To view what the code will look like in a browser from here type "python app.py" into the console and hit enter or replace "app.py" with which ever you have named the app
+9. A pop-up will appear stating "A service is available on Port 8080" select Open Browser
