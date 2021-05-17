@@ -5,7 +5,7 @@
 The 'Book Nook' is a web application developed as part of Code Institute, Diploma in Full Stack Software Development.
 It is the third milestone project in a series of four projects.
 
-The live site can be accessed [*here*]().
+The live site can be accessed [*here*](https://booknook-app.herokuapp.com/).
 
 *Please note: To open any links in this document in a new browser tab, please press `CTRL + Click`.*
 
@@ -335,5 +335,5 @@ The 'repo' should then open and you can begin working on it by selecting the gre
 5. In the terminal type "git clone" and paste the copied link
 6. Hit enter to create the clone
 7. To install the required packages type pip install -r requirements.txt into the command line
-8. To view what the code will look like in a browser from here type "python app.py" into the console and hit enter or replace "app.py" with which ever you have named the app
+8. To view what the code will look like in a browser from here type "python3 app.py" into the console and hit enter or replace "app.py" with which ever you have named the app
 9. A pop-up will appear stating "A service is available on Port 8080" select Open Browser
