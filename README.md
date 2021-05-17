@@ -37,7 +37,7 @@ The live site can be accessed [*here*]().
     * [Bugs and Fixes](#bugs-and-fixes)
 6. [Deployment](#deployment)
     * [Deployment via Heroku](#deployment-via-heroku)
-    * [Making a clone in GitPod](#making-a-Clone-in-GitPod)
+    * [Make a clone on GitPod](#making-a-Clone-on-GitPod)
 7. [Credits](#credits)
     * [Images](#Images)
     * [Code](#Code)
