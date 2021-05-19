@@ -44,10 +44,50 @@
         </ul>
         </header>
         <main>
-            
+ 
             {% block content %}
             {% endblock %}
         </main>
+
+        <footer>
+            <!--Start of footer, code taken from materialize and customized-->
+            <footer class="page-footer footer-extended white-text black">
+                <div class="container">
+                  <div class="row">
+                    <div class="col l6 s12">
+                      <h5 ><i class="class= red-text fas fa-book"></i> booknook</h5>
+                      <p>welcome to your little haven for book reviews and recommendations</p>
+                      <p>find your next favourite book or share a current literary love</p>
+                      <p>comment on reviews and engage with other readers</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5>contact us</h5>
+                        <p>admin@booknook.com</p>
+                            <ul class="media-list">
+                                <li><a href="https://www.instagram.com" target="_blank">
+                                        <i class="fab fa-instagram-square social-media" aria-hidden="true"></i>
+                                        <span class="sr-only">instagram</span></a>
+                                </li>
+                                <li><a href="https://www.facebook.com" class="media-list" target="_blank">
+                                        <i class="fab fa-facebook-square social-media" aria-hidden="true"></i>
+                                        <span class="sr-only">facebook</span></a>
+                                </li>
+                                <li><a href="https://www.pinterest.com" class="media-list" target="_blank">
+                                    <i class="fab fa-pinterest-square social-media" aria-hidden="true"></i>
+                                    <span class="sr-only">pinterest</span></a>
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                        </div>
+                <div class="footer-copyright">
+                  <div class="container center copyright">
+                  <p>Copywrite &copy; booknook<span id="copyright"></span> all rights reserved</p>
+                  </div>
+                </div>
+              </footer>
+            </footer>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

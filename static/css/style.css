@@ -18,3 +18,22 @@ nav ul a:hover {
     color: #ff3232;
     font-style: bold;
 }
+
+/*--------------------------------- FOOTER --*/
+
+.media-list li{
+    display: inline;
+}
+.social-media {
+    color: #ff3232;
+    font-size: 2rem;  
+}
+
+.social-media:hover {
+    color: white;
+    font-size: 2rem;  
+}
+
+.copyright{
+    font-size: .75rem;
+}
