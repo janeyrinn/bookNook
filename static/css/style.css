@@ -1,8 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
 
 body {
     font-family: 'Roboto Mono', sans-serif;
     margin: 0;
     position: relative;
     background-color: white;
+}
+
+/*--------------------------------- NAV BAR --*/
+
+nav ul a {
+    color: black;
+    font-style: bold;
+}
+
+nav ul a:hover {
+    color: #ff3232;
+    font-style: bold;
 }
