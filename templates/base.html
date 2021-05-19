@@ -19,7 +19,7 @@
         <nav class="nav-extended black-text white">
             <!-- Start of top navbar -->
             <div class="nav-wrapper">
-                <a href="{{ url_for('search') }}" class="brand-logo black-text">booknook</a>
+                <a href="{{ url_for('homepage') }}" class="brand-logo black-text">booknook</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="black-text fas fa-book"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('search') }}">search</a></li>
@@ -34,7 +34,7 @@
 
         <!-- Start of mobile sidenav bar -->
         <ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align white black-text">booknook</h4></li>
+            <li><a href="{{ url_for('homepage') }}"><h4 class="center-align white black-text">booknook</h4></a></li>
             <li><a href="{{ url_for('search') }}">search</a></li>
             <li><a href="#">add</a></li>
             <li><a href="#">profile</a></li>
@@ -56,9 +56,7 @@
                   <div class="row">
                     <div class="col l6 s12">
                       <h5 ><i class="class= red-text fas fa-book"></i> booknook</h5>
-                      <p>welcome to your little haven for book reviews and recommendations</p>
-                      <p>find your next favourite book or share a current literary love</p>
-                      <p>comment on reviews and engage with other readers</p>
+                      <p>“Books are the plane, and the train, and the road. They are the destination, and the journey. They are home.” – Anna Quindlen</p>
                     </div>
                     <div class="col l4 offset-l2 s12">
                         <h5>contact us</h5>
