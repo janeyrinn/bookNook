@@ -170,7 +170,7 @@ and content, in style 400 regular.
 
 ### Imagery
 
-The hero image on the landing page was located at a platform, [vectorstock.com](https://www.vectorstock.com/). 
+The hero image on the home page was found on unsplash.com, an open source image provider. The image was taken by [Luis Tosta](https://unsplash.com/@luis_tosta). 
 
 Book images are provided by open sourced http links of the images address. 
 
