@@ -1,8 +1,6 @@
-# Book Nook
+# ![Book Nook Logo](read-me/readme-logo.png)
 
-![Book Nook Logo](read-me/readme-logo.png)
-
-The 'Book Nook' is a web application developed as part of Code Institute, Diploma in Full Stack Software Development.
+Booknook is a web application developed as part of Code Institute, Diploma in Full Stack Software Development.
 It is the third milestone project in a series of four projects.
 
 The live site can be accessed [*here*](https://booknook-app.herokuapp.com/).
@@ -158,7 +156,7 @@ Comments hold the comment string, a date stamp (to help order the posts) the com
 During development sensitive data, such as database configuration variables, were saved in an [env.py](https://pypi.org/project/env.py/) file. This file  is not uploaded to GitHub for security purposes. These details are stored on Heroku once the site has reached the deployment stage. 
 
 ### Color Scheme
-![Color Swatch]()
+![Color Swatch](read-me/color-swatch.png)
 The above color swatch shows a guideline for the color scheme of the site. 
 
 Colors are brand colours that have been adopted for their strong visual contrast in an atempt to make all content as easily consumable and suitable for visually impared users as possible.
@@ -166,9 +164,9 @@ Colors are brand colours that have been adopted for their strong visual contrast
 ### Typography
 
 The Roboto Mono font, created by *Christian Robertson* for [Google Fonts](https://fonts.google.com/specimen/Roboto+Mono#about) will be the main font for all headings
-and content, alternating between 300 light, 400 regular and bold. 
+and content, in style 400 regular. 
 
-![Roboto Mono Font](TBC)
+![Roboto Mono Font](read-me/font-sample.png)
 
 ### Imagery
 
@@ -177,7 +175,7 @@ The hero image on the landing page was located at a platform, [vectorstock.com](
 Book images are provided by open sourced http links of the images address. 
 
 The logo was created using [canva.com](https://www.canva.com/). For a detailed list of 
-photographers and sources please see the [credits](#credits) section.
+image sources please see the [credits](#credits) section.
 
 ### Design Limitations
 
