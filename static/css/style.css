@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
 
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
     font-family: 'Roboto Mono', sans-serif;
     margin: 0;
@@ -36,4 +41,20 @@ nav ul a:hover {
 
 .copyright{
     font-size: .75rem;
+}
+
+/*--------------------------------- HOMEPAGE --*/
+
+.hero-img {
+    background:url("../images/hero-img.jpg") no-repeat center fixed;
+    min-height: 80vh;
+    overflow: auto;
+    position: relative;
+    justify-content: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 0;
+    
 }
