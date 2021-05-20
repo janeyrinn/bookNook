@@ -46,15 +46,30 @@ nav ul a:hover {
 /*--------------------------------- HOMEPAGE --*/
 
 .hero-img {
-    background:url("../images/hero-img.jpg") no-repeat center fixed;
-    min-height: 80vh;
-    overflow: auto;
-    position: relative;
-    justify-content: center;
+    background: url("") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
-    z-index: 0;
+    height: 80vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-box {
+    background-color: grey;
+    color: black;
+    opacity: 0.9;
+    margin-top: 25px;
+}
+
+.intro-heading {
+    font-size: 3rem;
+}
+
+.intro-text {
+    margin: 30px 30px;
     
 }
