@@ -26,27 +26,28 @@ nav ul a:hover {
 
 /*--------------------------------- FOOTER --*/
 
-.media-list li{
+.media-list li {
     display: inline;
 }
+
 .social-media {
     color: #ff3232;
-    font-size: 2rem;  
+    font-size: 2rem;
 }
 
 .social-media:hover {
     color: white;
-    font-size: 2rem;  
+    font-size: 2rem;
 }
 
-.copyright{
+.copyright {
     font-size: .75rem;
 }
 
 /*--------------------------------- HOMEPAGE --*/
 
 .hero-img {
-    background: url("") no-repeat center center fixed; 
+    background: url("../images/hero-img.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -59,10 +60,11 @@ nav ul a:hover {
 }
 
 .intro-box {
-    background-color: grey;
+    background-color: white;
     color: black;
-    opacity: 0.9;
+    opacity: 0.7;
     margin-top: 25px;
+    font-style: bold;
 }
 
 .intro-heading {
@@ -71,5 +73,5 @@ nav ul a:hover {
 
 .intro-text {
     margin: 30px 30px;
-    
+
 }
