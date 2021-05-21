@@ -12,6 +12,10 @@ body {
     background-color: white;
 }
 
+.background {
+    color: grey;
+}
+
 /*--------------------------------- NAV BAR --*/
 
 nav ul a {
@@ -20,7 +24,7 @@ nav ul a {
 }
 
 nav ul a:hover {
-    color: #ff3232;
+    color: #ff0000;
     font-style: bold;
 }
 
@@ -31,7 +35,7 @@ nav ul a:hover {
 }
 
 .social-media {
-    color: #ff3232;
+    color: #ff0000;
     font-size: 2rem;
 }
 
@@ -42,6 +46,26 @@ nav ul a:hover {
 
 .copyright {
     font-size: .75rem;
+}
+
+/*--------------------------------- BUTTONS --*/
+
+.bn-btn {
+    font-family: 'Roboto Mono', sans-serif;
+    text-transform: lowercase;
+    background-color: #d50000;
+}
+
+.bn-btn:hover {
+    font-family: 'Roboto Mono', sans-serif;
+    background-color: black;
+    text-transform: lowercase;
+}
+
+/*--------------------------------- LINKS --*/
+
+.log-link:hover {
+    text-decoration: underline;
 }
 
 /*--------------------------------- HOMEPAGE --*/
@@ -73,5 +97,4 @@ nav ul a:hover {
 
 .intro-text {
     margin: 30px 30px;
-
 }
