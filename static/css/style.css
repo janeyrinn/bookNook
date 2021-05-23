@@ -64,6 +64,13 @@ nav ul a:hover {
     text-decoration: underline;
 }
 
+/*--------------------------------- FLASH MESSAGES --*/
+
+.flash-row h4 {
+    line-height: 1.5;  
+}
+
+
 /*--------------------------------- FORMS --*/
 
 /*form {
