@@ -13,12 +13,14 @@
                 <!--First & Last Name-->
                 <div class="input-field col s6">
                     <i class="fas fa-user-circle prefix black-text"></i>
-                    <input id="firstname" name="firstname" type="text" class="validate" pattern="[a-zA-Z]{2,15}$" required>
+                    <input id="firstname" name="firstname" type="text" class="validate" pattern="[a-zA-Z]{2,15}$"
+                        required>
                     <label for="firstname">first name</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="fas fa-user-circle prefix black-text"></i>
-                    <input id="lastname" name="lastname" type="text" class="validate" pattern="[a-zA-Z]{2,15}$" required>
+                    <input id="lastname" name="lastname" type="text" class="validate" pattern="[a-zA-Z]{2,15}$"
+                        required>
                     <label for="lastname">last name</label>
                 </div>
                 <p class="criteria-msg center-align">no spaces or special characters</p>
@@ -27,21 +29,24 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-user-ninja prefix black-text"></i>
-                    <input id="username" name="username" type="text" class="validate" pattern="^[a-zA-Z0-9]{5,15}$" minlength="5" maxlength="15" required>
+                    <input id="username" name="username" type="text" class="validate" pattern="^[a-zA-Z0-9]{5,15}$"
+                        minlength="5" maxlength="15" required>
                     <label for="username">username</label>
                 </div>
-                <p class="criteria-msg center-align">5 to 15 alphanumeric characters required</p> 
+                <p class="criteria-msg center-align">5 to 15 alphanumeric characters required</p>
             </div>
             <!--Password : RegEx pattern from W3 Schools and customised-->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-lock prefix black-text"></i>
-                    <input id="password" name="password" type="password" class="validate" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,15}" minlength="5" maxlength="15" required>
+                    <input id="password" name="password" type="password" class="validate"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,15}" minlength="5" maxlength="15" required>
                     <label for="password">Password</label>
                 </div>
-                <p class="criteria-msg center-align">must contain at least one number, one uppercase and one lowercase letter, 5 to 15 alphanumeric characters required</p>
+                <p class="criteria-msg center-align">must contain at least one number, one uppercase and one lowercase
+                    letter, 5 to 15 alphanumeric characters required</p>
             </div>
-            <!--Submit Button-->
+            <!--Registration Button-->
             <div class="row btn-row">
                 <button type="submit" class="col s4 offset-m2 m8 white-text btn-large bn-btn">register</button>
             </div>
@@ -53,7 +58,7 @@
 
 <div class="row">
     <div class="col s12 offset-m2 m8 red-text text-accent-4 center-align">
-        <p>already registered?<a class="red-text text-accent-4 link log-link" href="">login!</a></p>
+        <p>already registered?<a class="red-text text-accent-4 link log-link" href="">log in!</a></p>
     </div>
 </div>
 {% endblock %}
