@@ -80,7 +80,14 @@ nav ul a:hover {
     font-style: bold;
 }*/
 
+.criteria-msg {
+    font-size: .75rem;
+    font-style: bold italic;  
+}
 
+.btn-row {
+    margin-top: 2rem;
+}
 /*--------------------------------- HOMEPAGE --*/
 
 .hero-img {
