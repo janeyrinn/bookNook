@@ -43,14 +43,30 @@
             <li><a href="{{ url_for('register') }}">register</a></li>
         </ul>
         </header>
-        <main>
+
+        <!--Start of section: holds flash messages-->
+        <section>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="row flash-row">
+                            <h4 class="red accent-4 center align">{{ message }}</h4>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </section>
+
+        <!--Start of main container: holds templates-->
+        <main class="container">
  
             {% block content %}
             {% endblock %}
+
         </main>
 
+        <!--Start of footer, code taken from materialize and customized-->
         <footer>
-            <!--Start of footer, code taken from materialize and customized-->
             <footer class="page-footer footer-extended white-text black">
                 <div class="container">
                   <div class="row">
