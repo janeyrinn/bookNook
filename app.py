@@ -25,6 +25,7 @@ def homepage():
     return render_template("home.html")
 
 
+# adds a new user to the database
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -36,6 +37,7 @@ def register():
             flash("username already exists")
             return redirect(url_for("register"))
 
+        # creates new user dictionary in db
         register = {
             "firstname": request.form.get("firstname").lower(),
             "lastname": request.form.get("lastname").lower(),
@@ -49,6 +51,33 @@ def register():
         flash("you are successfully registered")
 
     return render_template("register.html")
+
+
+# logs an existing user into their profile
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # check if username already exists in db
+        registered_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if registered_user:
+            # checks input against existing password in db
+            if check_password_hash(
+                registered_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("username").lower()
+                    flash("Welcome back, {}".format(request.form.get("username")))
+            else:
+                # error message for invalid password entry
+                flash("Oops check your username/password and try again")
+                return redirect(url_for("login"))
+
+        else:
+            # no match for username
+            flash("Oops check your username/password and try again")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
 
 
 @app.route("/search")
