@@ -69,7 +69,7 @@ def login():
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome back, {}".format(
                         request.form.get("username")))
-                    return  redirect(url_for(
+                    return redirect(url_for(
                         "profile", username=session["user"]))
             else:
                 # error message for invalid password entry
