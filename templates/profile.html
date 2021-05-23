@@ -5,11 +5,43 @@
 
 <div class="row">
     <div class="col s12 offset-m2 m8">
-        <div class="card-panel">
-            <h3 class="center-align black-text">
+        <div class="card-panel red accent-4">
+            <h3 class="center-align">
                 {{ username }}'s Profile
             </h3>
-        </div>   
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="container col s12 offset-m2 m8">
+        <div class="card-panel">
+            <!--First Name-->
+            <div class="row">
+                <div class="col s6">
+                    <span>first name:</span>
+                    <p>{{ firstname }}</p>
+                </div>
+            </div>
+            <!--Last Name-->
+            <div class="row">
+                <div class="col s6">
+                    <span>last name:</span>
+                    <p>{{ lastname }}</p>
+                </div>
+            </div>
+            <!--Username-->
+            <div class="row">
+                <div class="col s6">
+                    <span>user name:</span>
+                    <p>{{ lastname }}</p>
+                </div>
+            </div>
+            <!--Edit Button-->
+            <div class="row btn-row">
+                <button type="submit" class="col s4 offset-m2 m8 white-text btn-large bn-btn">Edit</button>
+            </div>
+        </div>
     </div>
 </div>
 
