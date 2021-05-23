@@ -49,7 +49,7 @@ def register():
         # put the newly created user into a session cookie
         session["user"] = request.form.get("username").lower()
         flash("you are successfully registered")
-        return  redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
 
@@ -89,7 +89,19 @@ def profile(username):
     # retrieves session users username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+
+    if session["user"]:
+        return render_template("profile.html", username=username)
+
+    return redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    # removes user session cookies which 'logs them out' of session
+    flash("you've been logged out successfully, come back soon!")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 @app.route("/search")
