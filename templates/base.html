@@ -30,7 +30,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('search') }}">search</a></li>
                     {% if session.user %}
-                    <li><a href="#">add</a></li>
+                    <li><a href="{{ url_for('add_review') }}">add review</a></li>
                     <li><a href="{{ url_for('profile', username=session['user']) }}">profile</a></li>
                     <li><a href="{{ url_for('logout') }}">log out</a></li>
                     {% else %}
@@ -48,7 +48,7 @@
             </li>
             <li><a href="{{ url_for('search') }}">search</a></li>
             {% if session.user %}
-            <li><a href="#">add</a></li>
+            <li><a href="{{ url_for('add_review') }}">add review</a></li>
             <li><a href="{{ url_for('profile', username=session['user']) }}">profile</a></li>
             <li><a href="{{ url_for('logout') }}">log out</a></li>
             {% else %}
