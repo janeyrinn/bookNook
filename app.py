@@ -110,6 +110,11 @@ def search():
     return render_template("search.html", books=books)
 
 
+@app.route("/comment", methods=["GET", "POST"])
+def comment():
+    return render_template("comment.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
