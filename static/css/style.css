@@ -46,15 +46,15 @@ nav ul a:hover {
 
 /*--------------------------------- BUTTONS --*/
 
-.bn-btn {
+.btn-large {
+    background-color: #d50000 !important;
     font-family: 'Roboto Mono', sans-serif;
     text-transform: lowercase;
-    background-color: #d50000;
 }
 
-.bn-btn:hover {
+.btn-large:hover {
     font-family: 'Roboto Mono', sans-serif;
-    background-color: black;
+    background-color: black !important;
     text-transform: lowercase;
 }
 
