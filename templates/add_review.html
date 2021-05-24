@@ -9,22 +9,51 @@
         <form class="col s12" method="POST" action="">
             <div class="row card-panel">
                 <!--Book Title Field-->
-                <div class="input-field col s12">
-                    <i class="fas fa-book prefix"></i>
-                    <input id="title" type="text" class="validate">
-                    <label for="title">book title</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-book prefix black-text"></i>
+                        <input id="book_title" name="book_title" type="text" class="validate"
+                        minlength="1" maxlength="30" required>
+                        <label for="book_title">book title</label>
+                    </div>
                 </div>
                 <!--Author Field-->
-                <div class="input-field col s12">
-                    <i class="fas fa-user-edit prefix"></i>
-                    <input id="author" type="tel" class="validate">
-                    <label for="author">author</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-user-edit prefix black-text"></i>
+                        <input id="book_author" name="book_author" type="text" minlength="1" maxlength="30"
+                        class="validate black-text" required>
+                        <label for="book_author">author</label>
+                    </div>
                 </div>
                 <!--Review Field-->
-                <div class="input-field col s12">
-                    <i class="fas fa-pen prefix black-text"></i>
-                    <textarea id="review" class="materialize-textarea"></textarea>
-                    <label for="review">your review</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-pen prefix black-text"></i>
+                        <textarea id="book_review" name="book_review" minlength="100" maxlength="10000" class="validate materialize-textarea" required></textarea>
+                        <label for="book_review">your review</label>
+                    </div>
+                </div>
+                <!--Image Field-->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-image prefix black-text"></i>
+                        <input id="book_image" name="book_image" type="url" class="validate" required>
+                        <label for="book_image">add url to book image</label>
+                    </div>
+                </div>
+                <!--Affiliated Link Field-->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-image prefix black-text"></i>
+                        <input id="book_link" name="book_link" type="url" class="validate" required>
+                        <label for="book_link">link to buy</label>
+                    </div>
+                </div>
+                <!--Add/Cancel Review Buttons-->
+                <div class="row btn-row">
+                    <button type="submit" class="col s12 white-text btn-large">add</button>
+                    <button type="submit" class="col s12 white-text btn-large">cancel</button>
                 </div>
             </div>
         </form>
