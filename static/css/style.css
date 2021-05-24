@@ -124,3 +124,12 @@ nav ul a:hover {
 .profile-header {
     padding-bottom: 10px;
 }
+
+.profile-item {
+    height: 3rem;
+    font-size: 22px;
+}
+
+.profile-icon {
+    font-size: 35px;
+}

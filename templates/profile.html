@@ -17,31 +17,22 @@
     <div class="col s12 offset-m2 m8">
         <div class="card-panel">
             <h4 class="center-align profile-header">your information</h4>
-            <!--First Name-->
+            <!--Name-->
             <div class="container">
             <div class="row center-align">
-                <div class="col s6">
-                    <span><i class="fas fa-user-circle prefix black-text"></i> first name:</span>
+                <div class="col profile-item s6">
+                    <span><i class="fas fa-user-circle profile-icon prefix black-text"></i></span>
                 </div>
-                <div class="col s6">
-                    <p>{{ user.firstname }}</p>
-                </div>
-            </div>
-            <!--Last Name-->
-            <div class="row center-align">
-                <div class="col s6">
-                    <span><i class="fas fa-user-circle prefix black-text"></i> last name:</span>
-                </div>
-                <div class="col s6">
-                    <p>{{ user.lastname }}</p>
+                <div class="col profile-item s6">
+                    <p>{{ user.firstname }} {{ user.lastname }}</p>
                 </div>
             </div>
             <!--Username-->
             <div class="row center-align">
-                <div class="col s6">
-                    <span><i class="fas fa-user-ninja prefix black-text"></i> user name:</span>
+                <div class="col profile-item s6">
+                    <span><i class="fas fa-user-ninja profile-icon prefix black-text"></i></span>
                 </div>
-                <div class="col s6">
+                <div class="col profile-item s6">
                     <p>{{ user.username }}</p>
                 </div>
             </div>
