@@ -110,7 +110,12 @@ def search():
     return render_template("search.html", books=books)
 
 
-@app.route("/comment", methods=["GET", "POST"])
+@app.route("/add_review")
+def add_review():
+    return render_template("add_review.html")
+
+
+@app.route("/comment")
 def comment():
     return render_template("comment.html")
 

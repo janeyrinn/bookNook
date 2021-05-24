@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="center-align red-text text-accent-4">add a book review</h2>
+
+<!--Start of 'add a review' section-->
+<div class="container">
+    <div class="row">
+        <form class="col s12" method="POST" action="">
+            <div class="row card-panel">
+                <!--Book Title Field-->
+                <div class="input-field col s12">
+                    <i class="fas fa-book prefix"></i>
+                    <input id="title" type="text" class="validate">
+                    <label for="title">book title</label>
+                </div>
+                <!--Author Field-->
+                <div class="input-field col s12">
+                    <i class="fas fa-user-edit prefix"></i>
+                    <input id="icon_telephone" type="tel" class="validate">
+                    <label for="icon_telephone">author</label>
+                </div>
+                <!--Review Field-->
+                <div class="input-field col s12">
+                    <i class="fas fa-pen prefix black-text"></i>
+                    <textarea id="review" class="materialize-textarea"></textarea>
+                    <label for="review">your review</label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
