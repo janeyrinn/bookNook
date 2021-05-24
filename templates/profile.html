@@ -7,40 +7,45 @@
     <div class="col s12 offset-m2 m8">
         <div class="card-panel red accent-4">
             <h3 class="center-align">
-                {{ username }}'s profile
+                {{ user.username }}'s profile
             </h3>
         </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="container col s12 offset-m2 m8">
+    <div class="col s12 offset-m2 m8">
         <div class="card-panel">
+            <h4 class="center-align profile-header">your information</h4>
             <!--First Name-->
-            <div class="row">
+            <div class="container">
+            <div class="row center-align">
                 <div class="col s6">
-                    <span>first name:</span>
-                    <p>{{ firstname }}</p>
+                    <span><i class="fas fa-user-circle prefix black-text"></i> first name:</span>
+                </div>
+                <div class="col s6">
+                    <p>{{ user.firstname }}</p>
                 </div>
             </div>
             <!--Last Name-->
-            <div class="row">
+            <div class="row center-align">
                 <div class="col s6">
-                    <span>last name:</span>
-                    <p>{{ lastname }}</p>
+                    <span><i class="fas fa-user-circle prefix black-text"></i> last name:</span>
+                </div>
+                <div class="col s6">
+                    <p>{{ user.lastname }}</p>
                 </div>
             </div>
             <!--Username-->
-            <div class="row">
+            <div class="row center-align">
                 <div class="col s6">
-                    <span>user name:</span>
-                    <p>{{ lastname }}</p>
+                    <span><i class="fas fa-user-ninja prefix black-text"></i> user name:</span>
+                </div>
+                <div class="col s6">
+                    <p>{{ user.username }}</p>
                 </div>
             </div>
-            <!--Edit Button-->
-            <div class="row btn-row">
-                <button type="submit" class="col s4 offset-m2 m8 white-text btn-large">Edit</button>
-            </div>
+        </div>
         </div>
     </div>
 </div>
