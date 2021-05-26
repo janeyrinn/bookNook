@@ -170,5 +170,12 @@ nav ul a:hover {
 /*--------------------------------- REVIEW PAGE --*/
 
 .review-row {
-    padding-top: 75px;
+    padding: 55px 55px;
+    background-color: white;
+}
+
+@media only screen and (max-width: 600px){
+    .review-row img {
+    max-width: 100%;
+}
 }
