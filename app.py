@@ -110,8 +110,21 @@ def search():
     return render_template("search.html", books=books)
 
 
-@app.route("/add_review")
+@app.route("/add_review", methods=["GET", "POST"])
 def add_review():
+    if request.method == "POST":
+        book = {
+            "book_title": request.form.get("book_title").lower(),
+            "book_author": request.form.get("book_author").lower(),
+            "book_review": request.form.get("book_review").lower(),
+            "book_link": request.form.get("book_link"),
+            "book_img": request.form.get("book_img"),
+            "post_author": session["user"]
+        }
+        mongo.db.books.insert_one(book)
+        flash("Your book review was successfully added")
+        return redirect(url_for("review.html"))
+
     return render_template("add_review.html")
 
 

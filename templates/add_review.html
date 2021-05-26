@@ -6,7 +6,7 @@
 <!--Start of 'add a review' section-->
 <div class="container">
     <div class="row">
-        <form class="col s12" method="POST" action="">
+        <form class="col s12" method="POST" action="{{ url_for('add_review') }}">
             <div class="row card-panel">
                 <!--Book Title Field-->
                 <div class="row">
@@ -53,8 +53,9 @@
                 </div>
                 <!--Add/Cancel Review Buttons-->
                 <div class="row btn-row">
-                    <button type="submit" class="col s12 white-text btn-large">add</button>
-                    <button type="submit" class="col s12 white-text btn-large">cancel</button>
+                    <div class="col s12 center-align">
+                        <button type="submit" class="white-text btn-large center-align">add</button>
+                    </div>
                 </div>
             </div>
         </form>
