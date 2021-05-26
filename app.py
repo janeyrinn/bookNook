@@ -128,9 +128,9 @@ def add_review():
     return render_template("add_review.html")
 
 
-@app.route("/review")
-def review():
-    book = mongo.db.books.find()
+@app.route("/review/<book_id>")
+def review(book_id):
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     return render_template("review.html", book=book)
 
 
