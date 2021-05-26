@@ -58,6 +58,20 @@ nav ul a:hover {
     text-transform: lowercase;
 }
 
+.btn-small {
+    background-color: black !important;
+    font-family: 'Roboto Mono', sans-serif;
+    text-transform: lowercase !important;
+}
+
+.btn-small:hover {
+    background-color:#d50000 !important;
+    font-family: 'Roboto Mono', sans-serif;
+    text-transform: lowercase !important;
+}
+
+
+
 /*--------------------------------- LINKS --*/
 
 .log-link:hover {
@@ -84,7 +98,6 @@ nav ul a:hover {
     font-size: .75rem;
     font-style: bold italic;  
 }
-
 .btn-row {
     margin-top: 2rem;
 }
@@ -132,4 +145,21 @@ nav ul a:hover {
 
 .profile-icon {
     font-size: 35px;
+}
+
+/*--------------------------------- SEARCH PAGE --*/
+
+/*------------ CARDS --*/
+
+.card {
+    height: auto !important;
+    width: 360px !important;
+}
+
+.card-image {
+    width: auto;
+}
+
+.card-action {
+
 }
