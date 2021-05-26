@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="container">
+    <div class="row center-align">
+        <h2 class="white-text">register</h2>
+    </div>
+    
 
-<h2 class="center-align red-text text-accent-4">register</h2>
 
 <!--Start of registration form, components from materialise-->
 
@@ -63,5 +67,7 @@
         <p>already registered?<a class="red-text text-accent-4 link log-link" href="{{ url_for('login') }}">log in!</a>
         </p>
     </div>
+</div>
+
 </div>
 {% endblock %}
