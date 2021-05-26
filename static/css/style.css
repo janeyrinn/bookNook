@@ -13,6 +13,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-image: url("../images/hero-img.jpg");
 }
 
 /*--------------------------------- NAV BAR --*/
@@ -166,3 +167,8 @@ nav ul a:hover {
     font-size: .5rem !important;
 }
 
+/*--------------------------------- REVIEW PAGE --*/
+
+.review-row {
+    padding-top: 75px;
+}
