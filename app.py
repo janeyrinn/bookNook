@@ -128,6 +128,12 @@ def add_review():
     return render_template("add_review.html")
 
 
+@app.route("/review")
+def review():
+    book = mongo.db.books.find()
+    return render_template("review.html", book=book)
+
+
 @app.route("/comment")
 def comment():
     return render_template("comment.html")
