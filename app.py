@@ -123,7 +123,7 @@ def add_review():
         }
         mongo.db.books.insert_one(book)
         flash("Your book review was successfully added")
-        return redirect(url_for("review.html"))
+        return redirect(url_for("add_review"))
 
     return render_template("add_review.html")
 
