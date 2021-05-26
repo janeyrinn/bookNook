@@ -151,15 +151,15 @@ nav ul a:hover {
 
 /*------------ CARDS --*/
 
-.card {
-    height: auto !important;
-    width: 360px !important;
+.card-grid {
+    display: flex;
 }
 
-.card-image {
-    width: auto;
+.card-title {
+    font-size: 1rem !important;
 }
 
-.card-action {
-
+.card-title p {
+    font-size: .5rem !important;
 }
+
