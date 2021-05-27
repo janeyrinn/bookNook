@@ -140,9 +140,9 @@ def review(book_id):
     return render_template("review.html", book=book)
 
 
-@app.route("/comment")
+@app.route("/add_comment")
 def comment():
-    return render_template("comment.html")
+    return render_template("add_comment.html")
 
 
 if __name__ == "__main__":
