@@ -110,6 +110,13 @@ def search():
     return render_template("search.html", books=books)
 
 
+@app.route("/filter", methods=["GET", "POST"])
+def filter():
+    query = request.form.get("query")
+    books = mongo.db.books.find({"$text": {"$search": query}})
+    return render_template("search.html", books=books)
+
+
 @app.route("/review/<book_id>")
 def review(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
