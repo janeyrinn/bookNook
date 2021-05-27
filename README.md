@@ -170,12 +170,13 @@ and content, in style 400 regular.
 
 ### Imagery
 
-The hero image on the home page was found on pexels.com, an open source image provider. The image was taken by user ["Cotton Bro"](https://www.pexels.com/@cottonbro). 
+Black and white imagery is used for hero and background images to keep inline with the theme of the app, images are from open sourced platforms. 
 
 Book images are provided by open sourced http links of the images address. 
 
-The logo was created using [canva.com](https://www.canva.com/). For a detailed list of 
-image sources please see the [credits](#credits) section.
+The logo was created using [canva.com](https://www.canva.com/). 
+
+For a detailed list of image sources please see the [credits](#credits) section.
 
 ### Design Limitations
 
@@ -335,3 +336,10 @@ The 'repo' should then open and you can begin working on it by selecting the gre
 7. To install the required packages type pip install -r requirements.txt into the command line
 8. To view what the code will look like in a browser from here type "python3 app.py" into the console and hit enter or replace "app.py" with which ever you have named the app
 9. A pop-up will appear stating "A service is available on Port 8080" select Open Browser
+
+## Credits
+
+### Images
+
+1. Hero Image by [Luis Tosta](https://unsplash.com/@luis_tosta) from [unsplash.com](https://unsplash.com/)
+2. Background image by [Cotton Bro](https://www.pexels.com/@cottonbro) from [pexels.com](https://www.pexels.com)
