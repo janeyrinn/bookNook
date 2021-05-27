@@ -13,7 +13,8 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-image: url("../images/hero-img.jpg");
+    background-image: url("../images/background-img.jpg");
+    background-color: black;
 }
 
 /*--------------------------------- NAV BAR --*/
