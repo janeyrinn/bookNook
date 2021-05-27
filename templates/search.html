@@ -7,30 +7,51 @@
   </div>
 
 
+  <!--Start search bar-->
+
+  <div class="row card-panel white">
+    <form action="{{ url_for('filter')}}" method="post" class="col s12">
+      <div class="row valign-wrapper center-align">
+        <div class="input-field col s12 m8">
+          <i class="fas fa-search prefix black-text"></i>
+          <input type="text" name="query" id="query" minlength="2" class="validate" required>
+          <label for="query">Search</label>
+        </div>
+      </div>
+        <div class="row right">
+        <div class="col">
+          <a href="{{ url_for('search') }}" class="btn-small">reset</a>
+          <button type="submit" class="btn-small">search</button>
+        </div>
+      </div>
+      
+    </form>
+  </div>
+
   <!--Start book review cards, Materialize Code for Cards-->
 
   <div class="row">
     {% for book in books %}
     <div class="col card-grid s12 m6 l6 xl3">
-      <div class="card medium">
-        <div class="card-image">
-          <img src="{{ book.book_img }}">
-        </div>
-        <div class="card-content">
-          <p class="card-title">{{ book.book_title }}</p>
-          <p>by: {{ book.book_author }}</p>
-        </div>
-        <div class="card-action">
-          <a class="col s3 right white-text btn-small" href="{{ url_for('review', book_id=book._id ) }}">view</a>
-          {% if session.user|lower == book.post_author %}
-          <a class="col s3 left white-text btn-small" href="{{ url_for('edit_review', book_id=book._id ) }}">edit</a>
-          {% endif %}
-        </div>
-      </div>
+          <div class="card medium">
+            <div class="card-image">
+              <img src="{{ book.book_img }}">
+            </div>
+            <div class="card-content">
+              <p class="card-title">{{ book.book_title }}</p>
+              <p>by: {{ book.book_author }}</p>
+            </div>
+            <div class="card-action">
+              <a class="col s3 right white-text btn-small" href="{{ url_for('review', book_id=book._id ) }}">view</a>
+              {% if session.user|lower == book.post_author %}
+              <a class="col s3 left white-text btn-small"
+                href="{{ url_for('edit_review', book_id=book._id ) }}">edit</a>
+              {% endif %}
+            </div>
+          </div>
     </div>
     {% endfor %}
   </div>
-</div>
 </div>
 
 
