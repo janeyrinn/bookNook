@@ -130,7 +130,7 @@ def add_review():
 
 @app.route("/edit_review/<book_id>", methods=["GET", "POST"])
 def edit_review(book_id):
-    book = mongo.db.books.find_one({"_id:": ObjectId(book_id)})
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     return render_template("edit_review.html", book=book)
 
 
