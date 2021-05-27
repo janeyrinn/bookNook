@@ -11,7 +11,7 @@
 
 <div class="row">
   {% for book in books %}
-  <div class="col card-grid s12 m6 l3 xl4">
+  <div class="col card-grid s12 m6 l4 xl4">
     <div class="card medium">
       <div class="card-image">
         <img src="{{ book.book_img }}">
@@ -21,7 +21,8 @@
         <p>by: {{ book.book_author }}</p>
       </div>
       <div class="card-action">
-        <a class="white-text btn-small" href="{{ url_for('review', book_id=book._id ) }}">view</a>
+        <a class="col s3 white-text btn-small" href="{{ url_for('review', book_id=book._id ) }}">view</a>
+        <a class="col s3 right white-text btn-small" href="#">edit</a> 
       </div>
     </div>
   </div>
