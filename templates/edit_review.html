@@ -59,6 +59,7 @@
                         <div class="col s12 center-align">
                             <button type="submit" class="white-text btn-large">save</button>
                             <a href="{{ url_for('search') }}" type="submit" class="white-text btn-large">cancel</a>
+                            <a href="{{ url_for('delete_review', book_id=book._id ) }}" type="submit" class="white-text btn-large">delete</a>
                         </div>
                     </div>
                 </div>
