@@ -110,6 +110,12 @@ def search():
     return render_template("search.html", books=books)
 
 
+@app.route("/review/<book_id>")
+def review(book_id):
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    return render_template("review.html", book=book)
+
+
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     if request.method == "POST":
@@ -147,10 +153,11 @@ def edit_review(book_id):
     return render_template("edit_review.html", book=book)
 
 
-@app.route("/review/<book_id>")
-def review(book_id):
-    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    return render_template("review.html", book=book)
+@app.route("/delete_review/<book_id>")
+def delete_review(book_id):
+    mongo.db.books.remove({"_id": ObjectId(book_id)})
+    flash("your review was successfully deleted")
+    return redirect(url_for("search"))
 
 
 @app.route("/add_comment")
