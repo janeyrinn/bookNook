@@ -1,4 +1,4 @@
-// initializes book icon to open sidenav
+// initializes book icon to open sidenav: 
 $(document).ready(function () {
   $('.sidenav').sidenav({
     edge: "right"
@@ -20,3 +20,9 @@ function typeWriterEffect() {
     setTimeout(typeWriterEffect, speed);
   }
 }
+
+// initializes collapsible : Materialize
+
+$(document).ready(function(){
+  $('.collapsible').collapsible();
+});

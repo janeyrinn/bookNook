@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!--Start of Book Review Section -->
 <div class="container">
     <div class="row center-align">
         <h2 class="header-gen white-text">{{ book.post_author }}'s review </h2>
@@ -19,8 +20,18 @@
             </p>
         </div>
     </div>
+    
+    <!--Start of Related Comments Section -->
+    <ul class="collapsible">
+        <li>
+            {% for comment in comments %}
+          <div class="collapsible-header"><i class="fas fa-user-ninja">{{ comment.comment_author }}</i></div>
+          <div class="collapsible-body white"><span>{{ comment.comment }}</span></div>
+            {% endfor %}
+        </li>
+      </ul>
+      
 </div>
-
 
 
 {% endblock %}
