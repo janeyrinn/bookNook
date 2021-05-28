@@ -57,7 +57,8 @@
                     <!--Add/Cancel Review Buttons-->
                     <div class="row btn-row">
                         <div class="col s12 center-align">
-                            <button type="submit" class="white-text btn-large center-align">add</button>
+                            <button type="submit" href="{{ url_for('search') }}" class="white-text btn-large center-align">add</button>
+                            <a href="{{ url_for('search') }}" class="white-text btn-large center-align">cancel</a> 
                         </div>
                     </div>
                 </div>
