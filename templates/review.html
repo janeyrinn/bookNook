@@ -22,14 +22,20 @@
     </div>
     
     <!--Start of Related Comments Section -->
-    <ul class="collapsible">
-        <li>
-            {% for comment in comments %}
-          <div class="collapsible-header"><i class="fas fa-user-ninja">{{ comment.comment_author }}</i></div>
-          <div class="collapsible-body white"><span>{{ comment.comment }}</span></div>
-            {% endfor %}
-        </li>
-      </ul>
+    {% if comment|length > 0 %}
+    <div class="row">
+        {% for comment in comments %}
+        <div class="col s12">
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header"><i class="fas fa-user-ninja"></i><p>{{ comment.comment_title }} by {{ comment.comment_author }}</p></div>
+                    <div class="collapsible-body white"><span>{{ comment.comment }}</span></div>
+                </li>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
       
 </div>
 
