@@ -111,6 +111,16 @@ nav ul a:hover {
 .btn-row {
     margin-top: 2rem;
 }
+
+.form-item {
+    height: 3rem;
+    font-size: 22px;
+    font-style: italic;
+}
+
+.form-icon {
+    font-size: 33px;
+}
 /*--------------------------------- HOMEPAGE --*/
 
 .hero-img {
