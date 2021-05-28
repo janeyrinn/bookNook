@@ -120,7 +120,8 @@ def filter():
 @app.route("/review/<book_id>")
 def review(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    return render_template("review.html", book=book)
+    comment = list(mongo.db.comments.find())
+    return render_template("review.html", book=book, comment=comment)
 
 
 @app.route("/add_review", methods=["GET", "POST"])
@@ -172,7 +173,6 @@ def add_comment(book_id):
     if request.method == "POST":
         comment = {
             "book_id": book_id,
-            "book_title": request.form.get("book_title"),
             "comment_title": request.form.get("comment_title").lower(),
             "comment": request.form.get("comment").lower(),
             "comment_author": session["user"]
