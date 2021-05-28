@@ -27,7 +27,7 @@ $(document).ready(function(){
   $('.collapsible').collapsible();
 });
 
-// inititializes delete review modal : Materialize
+// inititializes delete review/comment modal : Materialize
 $(document).ready(function(){
   $('.modal').modal();
 });
