@@ -167,8 +167,18 @@ def delete_review(book_id):
     return redirect(url_for("search"))
 
 
-@app.route("/add_comment")
-def comment():
+@app.route("/add_comment", methods=["GET", "POST"])
+def add_comment():
+    if request.method == "POST":
+        comment = {
+            "comment_title": request.form.get("comment_title").lower(),
+            "comment": request.form.get("comment").lower(),
+            "comment_author": session["user"]
+        }
+        mongo.db.comments.insert_one(comment)
+        flash("your comment was successfully added")
+        return redirect(url_for("search"))
+
     return render_template("add_comment.html")
 
 
