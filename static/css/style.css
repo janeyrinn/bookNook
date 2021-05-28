@@ -55,6 +55,7 @@ nav ul a:hover {
     background-color: #d50000 !important;
     font-family: 'Roboto Mono', sans-serif;
     text-transform: lowercase;
+    margin: 5px;
 }
 
 .btn-large:hover {
@@ -89,7 +90,11 @@ nav ul a:hover {
     line-height: 1.5;  
 }
 
+/*--------------------------------- HEADERS --*/
 
+.header-red {
+    color: #d50000;
+}
 /*--------------------------------- FORMS --*/
 
 /*form {

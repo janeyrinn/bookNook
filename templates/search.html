@@ -29,10 +29,12 @@
   </div>
 
   <!--Start book review cards, Materialize Code for Cards-->
-
+  {% if books|length > 0 %}
   <div class="row">
     {% for book in books %}
     <div class="col card-grid s12 m6 l6 xl3">
+      <ul>
+        <li>
           <div class="card medium">
             <div class="card-image">
               <img src="{{ book.book_img }}">
@@ -49,9 +51,17 @@
               {% endif %}
             </div>
           </div>
+        </li>
+      </ul>
     </div>
     {% endfor %}
   </div>
+  {% else %}
+    <div class="row center-align">
+      <h2 class="header-red">oops no results found!</h2>
+    </div>
+  {% endif %}
+
 </div>
 
 

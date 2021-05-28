@@ -106,14 +106,14 @@ def logout():
 
 @app.route("/search")
 def search():
-    books = mongo.db.books.find()
+    books = list(mongo.db.books.find())
     return render_template("search.html", books=books)
 
 
 @app.route("/filter", methods=["GET", "POST"])
 def filter():
     query = request.form.get("query")
-    books = mongo.db.books.find({"$text": {"$search": query}})
+    books = list(mongo.db.books.find({"$text": {"$search": query}}))
     return render_template("search.html", books=books)
 
 
