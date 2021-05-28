@@ -17,7 +17,7 @@
             <p>
                 {{ book.book_review }}
                 <a class="white-text btn-small" href="{{ book.book_link }}">buy</a>
-                <a class="white-text btn-small" href="{{ url_for('add_comment') }}">comment</a>
+                <a class="white-text btn-small" href="{{ url_for('add_comment', book_id=book._id) }}">comment</a>
 
             </p>
         </div>
