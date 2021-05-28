@@ -26,3 +26,8 @@ function typeWriterEffect() {
 $(document).ready(function(){
   $('.collapsible').collapsible();
 });
+
+// inititializes delete review modal : Materialize
+$(document).ready(function(){
+  $('.modal').modal();
+});

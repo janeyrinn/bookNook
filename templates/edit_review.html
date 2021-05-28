@@ -59,12 +59,28 @@
                         <div class="col s12 center-align">
                             <button type="submit" class="white-text btn-large">save</button>
                             <a href="{{ url_for('search') }}" type="submit" class="white-text btn-large">cancel</a>
-                            <a href="{{ url_for('delete_review', book_id=book._id ) }}" type="submit" class="white-text btn-large">delete</a>
+                             <!-- Modal Trigger -->
+                            <a href="#reviewModal" type="submit" class="white-text btn-large modal-trigger">delete</a>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+        <!-- Start of Delete Modal -->
+ 
+
+  <!-- Modal Structure -->
+  <div id="reviewModal" class="modal">
+    <div class="modal-content">
+      <h4 class="header-red">warning</h4>
+      <hr>
+      <p>you are about to delete your review, are you sure?</p>
+    </div>
+    <div class="modal-footer">
+      <a href="{{ url_for('delete_review', book_id=book._id ) }}" class="modal-close waves-effect waves-green btn-small">yes delete</a>
+      <a href="{{ url_for('edit_review', book_id=book._id) }}" class="modal-close waves-effect waves-green btn-small">cancel</a>
+    </div>
+  </div>
 </div>
 {% endblock %}
