@@ -7,7 +7,7 @@
         <h2 class="header-gen white-text">{{ book.post_author }}'s review </h2>
     </div>
 
-    <div class="row review-row">
+    <div class="row review-row left">
         <div class="col s12 m6"><img src="{{ book.book_img }}" alt="Image for {{ book.book_title }}">
         </div>
         <div class="col s12 m6">
@@ -16,22 +16,27 @@
             <p class="review-item">author: {{ book.book_author }}</p>
             <p>
                 {{ book.book_review }}
+                <div>
                 <a class="white-text btn-small" href="{{ book.book_link }}">buy</a>
                 <a class="white-text btn-small" href="{{ url_for('add_comment', book_id=book._id) }}">comment</a>
-
+            </div>
             </p>
         </div>
     </div>
     
     <!--Start of Related Comments Section -->
     {% if comment|length > 0 %}
-    <div class="row">
-        {% for comment in comments %}
+    <div class="row comment-row">
+        <h4 class="s12 white-text center-align">readers comment's</h4>
+        {% for comment in comment %}
         <div class="col s12">
             <ul class="collapsible">
                 <li>
-                    <div class="collapsible-header"><i class="fas fa-user-ninja"></i><p>{{ comment.comment_title }} by {{ comment.comment_author }}</p></div>
-                    <div class="collapsible-body white"><span>{{ comment.comment }}</span></div>
+                    <div class="collapsible-header black">
+                        <p class="white-text left">"{{ comment.comment_title }}"</p>
+                    </div>
+                    <div class="collapsible-body red accent-4"><p>{{ comment.comment }}</p>
+                       <p><em>{{ comment.comment_datetime }} by {{ comment.comment_author }}</em></p></div>
                 </li>
             </ul>
         </div>
