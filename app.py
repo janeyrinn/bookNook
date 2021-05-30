@@ -8,6 +8,7 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
+import datetime
 
 # connects app to mongoDB and required database
 app = Flask(__name__)
@@ -173,6 +174,8 @@ def add_comment(book_id):
     if request.method == "POST":
         comment = {
             "book_id": book_id,
+            "commetn_datetime": datetime.datetime.now().strftime(
+                '%d %B %Y - %H:%M:%S'),
             "comment_title": request.form.get("comment_title").lower(),
             "comment": request.form.get("comment").lower(),
             "comment_author": session["user"]
