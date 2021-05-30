@@ -97,13 +97,6 @@ nav ul a:hover {
 }
 /*--------------------------------- FORMS --*/
 
-/*form {
-    background-color: white;
-    color: black;
-    opacity: 0.7;
-    font-style: bold;
-}*/
-
 .criteria-msg {
     font-size: .75rem;
     font-style: bold italic;  
@@ -120,6 +113,10 @@ nav ul a:hover {
 
 .form-icon {
     font-size: 33px;
+}
+
+.comment-item{
+
 }
 /*--------------------------------- HOMEPAGE --*/
 
