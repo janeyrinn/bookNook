@@ -174,7 +174,7 @@ def add_comment(book_id):
     if request.method == "POST":
         comment = {
             "book_id": book_id,
-            "commetn_datetime": datetime.datetime.now().strftime(
+            "comment_datetime": datetime.datetime.now().strftime(
                 '%d %B %Y - %H:%M:%S'),
             "comment_title": request.form.get("comment_title").lower(),
             "comment": request.form.get("comment").lower(),
