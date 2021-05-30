@@ -115,9 +115,6 @@ nav ul a:hover {
     font-size: 33px;
 }
 
-.comment-item{
-
-}
 /*--------------------------------- HOMEPAGE --*/
 
 .hero-img {
@@ -191,6 +188,10 @@ nav ul a:hover {
     font-size: 1.5rem;
 }
 
+.review-row img {
+    width: 50%;
+    height: 50%;
+
 @media only screen and (max-width: 600px){
     .review-row img {
     max-width: 100%;
@@ -204,3 +205,13 @@ nav ul a:hover {
 }
 }
 
+.comment-row {
+    padding: 25px 25px;
+}
+
+.collapsible {
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    margin: .5rem 0 1rem 0;
+}
