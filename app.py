@@ -208,7 +208,19 @@ def add_comment(book_id):
         return redirect(url_for('login'))
 
 
-if __name__ == "__main__":
+@app.route('/delete_comment/<comment_id>')
+def delete_comment(comment_id):
+
+    if 'user' in session:
+        mongo.db.comments.remove({'_id': ObjectId(comment_id)})
+        flash('your comment was successfully deleted')
+        return redirect(url_for('search'))
+    else:
+        flash('please login to complete this request')
+        return redirect(url_for('login'))
+
+
+if __name__ == '__main__':
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
