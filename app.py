@@ -168,6 +168,7 @@ def edit_review(book_id):
 
         return render_template("edit_review.html", book=book)
     else:
+        flash('please login to complete this request')
         return redirect(url_for('login'))
 
 
