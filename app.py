@@ -141,7 +141,7 @@ def add_review():
             }
             mongo.db.books.insert_one(book)
             flash("Your book review was successfully added")
-            return redirect(url_for("add_review"))
+            return redirect(url_for('search'))
 
         return render_template("add_review.html")
     else:
@@ -175,9 +175,14 @@ def edit_review(book_id):
 
 @app.route("/delete_review/<book_id>")
 def delete_review(book_id):
-    mongo.db.books.remove({"_id": ObjectId(book_id)})
-    flash("your review was successfully deleted")
-    return redirect(url_for("search"))
+
+    if 'user' in session:
+        mongo.db.books.remove({"_id": ObjectId(book_id)})
+        flash("your review was successfully deleted")
+        return redirect(url_for("search"))
+    else:
+        flash('please login to complete this request')
+        return redirect(url_for('login'))
 
 
 @app.route("/add_comment/<book_id>", methods=["GET", "POST"])
