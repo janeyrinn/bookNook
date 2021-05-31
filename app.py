@@ -145,6 +145,7 @@ def add_review():
 
         return render_template("add_review.html")
     else:
+        flash('please login to complete this request')
         return redirect(url_for('login'))
 
 
