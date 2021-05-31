@@ -151,20 +151,24 @@ def add_review():
 @app.route("/edit_review/<book_id>", methods=["GET", "POST"])
 def edit_review(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    if request.method == "POST":
-        revised = {
-            "book_title": request.form.get("book_title").lower(),
-            "book_author": request.form.get("book_author").lower(),
-            "book_review": request.form.get("book_review").lower(),
-            "book_link": request.form.get("book_link"),
-            "book_img": request.form.get("book_img"),
-            "post_author": session["user"]
-        }
-        mongo.db.books.update({"_id": ObjectId(book_id)}, revised)
-        flash("Your book review was successfully updated")
-        return redirect(url_for("search"))
 
-    return render_template("edit_review.html", book=book)
+    if 'user' in session:
+        if request.method == "POST":
+            revised = {
+                "book_title": request.form.get("book_title").lower(),
+                "book_author": request.form.get("book_author").lower(),
+                "book_review": request.form.get("book_review").lower(),
+                "book_link": request.form.get("book_link"),
+                "book_img": request.form.get("book_img"),
+                "post_author": session["user"]
+            }
+            mongo.db.books.update({"_id": ObjectId(book_id)}, revised)
+            flash("Your book review was successfully updated")
+            return redirect(url_for("search"))
+
+        return render_template("edit_review.html", book=book)
+    else:
+        return redirect(url_for('login'))
 
 
 @app.route("/delete_review/<book_id>")
@@ -176,21 +180,21 @@ def delete_review(book_id):
 
 @app.route("/add_comment/<book_id>", methods=["GET", "POST"])
 def add_comment(book_id):
-    if request.method == "POST":
-        comment = {
-            "book_id": book_id,
-            "comment_datetime": datetime.datetime.now().strftime(
-                '%d %B %Y - %H:%M:%S'),
-            "comment_title": request.form.get("comment_title").lower(),
-            "comment": request.form.get("comment").lower(),
-            "comment_author": session["user"]
-        }
-        mongo.db.comments.insert_one(comment)
-        flash("your comment was successfully added")
-        return redirect(url_for("search"))
+        if request.method == "POST":
+            comment = {
+                "book_id": book_id,
+                "comment_datetime": datetime.datetime.now().strftime(
+                    '%d %B %Y - %H:%M:%S'),
+                "comment_title": request.form.get("comment_title").lower(),
+                "comment": request.form.get("comment").lower(),
+                "comment_author": session["user"]
+            }
+            mongo.db.comments.insert_one(comment)
+            flash("your comment was successfully added")
+            return redirect(url_for("search"))
 
-    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    return render_template("add_comment.html", book=book)
+        book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+        return render_template("add_comment.html", book=book)
 
 
 if __name__ == "__main__":
