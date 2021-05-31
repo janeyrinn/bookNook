@@ -180,21 +180,25 @@ def delete_review(book_id):
 
 @app.route("/add_comment/<book_id>", methods=["GET", "POST"])
 def add_comment(book_id):
-        if request.method == "POST":
-            comment = {
-                "book_id": book_id,
-                "comment_datetime": datetime.datetime.now().strftime(
-                    '%d %B %Y - %H:%M:%S'),
-                "comment_title": request.form.get("comment_title").lower(),
-                "comment": request.form.get("comment").lower(),
-                "comment_author": session["user"]
-            }
-            mongo.db.comments.insert_one(comment)
-            flash("your comment was successfully added")
-            return redirect(url_for("search"))
+        if 'user' in session:
+            if request.method == "POST":
+                comment = {
+                    "book_id": book_id,
+                    "comment_datetime": datetime.datetime.now().strftime(
+                        '%d %B %Y - %H:%M:%S'),
+                    "comment_title": request.form.get("comment_title").lower(),
+                    "comment": request.form.get("comment").lower(),
+                    "comment_author": session["user"]
+                }
+                mongo.db.comments.insert_one(comment)
+                flash("your comment was successfully added")
+                return redirect(url_for("search"))
 
-        book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-        return render_template("add_comment.html", book=book)
+            book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+            return render_template("add_comment.html", book=book)
+        else:
+            flash('please login to complete this request')
+            return redirect(url_for('login'))
 
 
 if __name__ == "__main__":
