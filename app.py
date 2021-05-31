@@ -65,8 +65,9 @@ def login():
 
         if registered_user:
             # checks input against existing password in db
-            if check_password_hash(
-                registered_user["password"], request.form.get("password")):
+            if  check_password_hash(
+                registered_user["password"],
+                    request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome back, {}".format(
                         request.form.get("username")))
@@ -127,24 +128,29 @@ def review(book_id):
 
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
-    if request.method == "POST":
-        book = {
-            "book_title": request.form.get("book_title").lower(),
-            "book_author": request.form.get("book_author").lower(),
-            "book_review": request.form.get("book_review").lower(),
-            "book_link": request.form.get("book_link"),
-            "book_img": request.form.get("book_img"),
-            "post_author": session["user"]
-        }
-        mongo.db.books.insert_one(book)
-        flash("Your book review was successfully added")
-        return redirect(url_for("add_review"))
 
-    return render_template("add_review.html")
+    if 'user' in session:
+        if request.method == "POST":
+            book = {
+                "book_title": request.form.get("book_title").lower(),
+                "book_author": request.form.get("book_author").lower(),
+                "book_review": request.form.get("book_review").lower(),
+                "book_link": request.form.get("book_link"),
+                "book_img": request.form.get("book_img"),
+                "post_author": session["user"]
+            }
+            mongo.db.books.insert_one(book)
+            flash("Your book review was successfully added")
+            return redirect(url_for("add_review"))
+
+        return render_template("add_review.html")
+    else:
+        return redirect(url_for('login'))
 
 
 @app.route("/edit_review/<book_id>", methods=["GET", "POST"])
 def edit_review(book_id):
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     if request.method == "POST":
         revised = {
             "book_title": request.form.get("book_title").lower(),
@@ -158,7 +164,6 @@ def edit_review(book_id):
         flash("Your book review was successfully updated")
         return redirect(url_for("search"))
 
-    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     return render_template("edit_review.html", book=book)
 
 
