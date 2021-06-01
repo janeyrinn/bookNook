@@ -121,9 +121,10 @@ def filter():
 
 @app.route("/review/<book_id>")
 def review(book_id):
-    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    comment = list(mongo.db.comments.find())
-    return render_template("review.html", book=book, comment=comment)
+
+        book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+        comment = list(mongo.db.comments.find())
+        return render_template("review.html", book=book, comment=comment)
 
 
 @app.route("/add_review", methods=["GET", "POST"])
@@ -218,6 +219,13 @@ def delete_comment(comment_id):
     else:
         flash('please login to complete this request')
         return redirect(url_for('login'))
+
+
+# code found in flask documentation
+@app.errorhandler(404)
+def page_not_found(e):
+
+    return render_template('error.html', e=e), 404
 
 
 if __name__ == '__main__':
