@@ -122,9 +122,12 @@ def filter():
 @app.route("/review/<book_id>")
 def review(book_id):
 
-        book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-        comment = list(mongo.db.comments.find())
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    comment = list(mongo.db.comments.find())
+    if book:
         return render_template("review.html", book=book, comment=comment)
+    else:
+        return render_template('404.html')
 
 
 @app.route("/add_review", methods=["GET", "POST"])
