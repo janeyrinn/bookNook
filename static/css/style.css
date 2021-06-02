@@ -8,12 +8,10 @@
 
 body {
     font-family: 'Roboto Mono', sans-serif;
-    margin: 0;
-    position: relative;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-image: url("../images/background-img.jpg");
+    background: url("../images/background-img.jpg") no-repeat center center fixed;
     background-color: black;
 }
 
