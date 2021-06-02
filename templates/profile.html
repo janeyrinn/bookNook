@@ -3,50 +3,50 @@
 
 <!--Start of user profile, components from materialise-->
 <div class="container">
-<div class="row">
-    <div class="col s12 offset-m2 m8">
-        <div class="">
-            <h2 class="white-text center-align">
-                {{ user.username }}'s profile
-            </h2>
+    <div class="row">
+        <div class="col s12 offset-m2 m8">
+            <div class="">
+                <h2 class="white-text center-align">
+                    {{ user.username }}'s profile
+                </h2>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col s12 offset-m2 m8">
-        <div class="card-panel">
-            <h4 class="center-align profile-header">your information</h4>
-            <!--Name-->
-            <div class="container">
-            <div class="row center-align">
-                <div class="col profile-item s6">
-                    <span><i class="fas fa-user-circle profile-icon prefix black-text"></i></span>
-                </div>
-                <div class="col profile-item s6">
-                    <p>{{ user.firstname }} {{ user.lastname }}</p>
+    <div class="row">
+        <div class="col s12 offset-m2 m8">
+            <div class="card-panel">
+                <h4 class="center-align profile-header">your information</h4>
+                <!--Name-->
+                <div class="container">
+                    <div class="row center-align">
+                        <div class="col profile-item s6">
+                            <span><i class="fas fa-user-circle profile-icon prefix black-text"></i></span>
+                        </div>
+                        <div class="col profile-item s6">
+                            <p>{{ user.firstname }} {{ user.lastname }}</p>
+                        </div>
+                    </div>
+                    <!--Username-->
+                    <div class="row center-align">
+                        <div class="col profile-item s6">
+                            <span><i class="fas fa-user-ninja profile-icon prefix black-text"></i></span>
+                        </div>
+                        <div class="col profile-item s6">
+                            <p>{{ user.username }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!--Username-->
-            <div class="row center-align">
-                <div class="col profile-item s6">
-                    <span><i class="fas fa-user-ninja profile-icon prefix black-text"></i></span>
-                </div>
-                <div class="col profile-item s6">
-                    <p>{{ user.username }}</p>
-                </div>
-            </div>
-        </div>
         </div>
     </div>
-</div>
-        <!--Start of Related Comments Section -->
-        {% if comment|length > 0 %}
-        <div class="row s12 comment-row">
-            <h4 class="s12 white-text center-align">your comments</h4>
-            {% for comment in comment %}
-            <div class="row">
-                <div class="col s12 offset-m2 m8">
+    <!--Start of Related Comments Section -->
+    {% if comment|length > 0 %}
+    <div class="row s12 comment-row">
+        <h4 class="s12 white-text center-align">your comments</h4>
+        {% for comment in comment %}
+        <div class="row">
+            <div class="col s12 offset-m2 m8">
                 <ul class="comment">
                     <li>
                         <div class="comment-header black">
@@ -55,35 +55,77 @@
                             <a href="#commentModal" class="col s3 right btn-small modal-trigger">delete</a>
                             {% endif %}
                         </div>
-                        <div class="comment-body red accent-4"><p>"{{ comment.comment }}"</p>
-                        <p class="comment-data"> {{ comment.comment_datetime }}</p>
+                        <div class="comment-body red accent-4">
+                            <p>"{{ comment.comment }}"</p>
+                            <p class="comment-data"> {{ comment.comment_datetime }}</p>
                         </div>
                     </li>
                 </ul>
             </div>
-            </div>
-            
-            {% endfor %}
         </div>
-        {% endif %}
-    
-         <!-- Start of Delete Comment Modal -->
-    
-      <!-- Modal Structure -->
-      <div id="commentModal" class="modal">
+
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!--Start of Users Book Reviews-->
+    <div class="container">
+        <div class="row center-align">
+            <h2 class="header-gen white-text">your reviews </h2>
+        </div>
+        {% if books|length > 0 %}
+        <div class="row">
+            {% for book in books %}
+            <div class="col card-grid s12 m6 l6 offset-m2">
+                <ul>
+                    <li>
+                        <div class="card medium">
+                            <div class="card-image">
+                                <img src="{{ book.book_img }}">
+                            </div>
+                            <div class="card-content">
+                                <p class="card-title">{{ book.book_title }}</p>
+                                <p>by: {{ book.book_author }}</p>
+                            </div>
+                            <div class="card-action">
+                                <a class="col s3 right white-text btn-small"
+                                    href="{{ url_for('review', book_id=book._id ) }}">view</a>
+                                {% if session.user|lower == book.post_author %}
+                                <a class="col s3 left white-text btn-small"
+                                    href="{{ url_for('edit_review', book_id=book._id ) }}">edit</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+        </div>
+    </div>
+    <!-- Start of Delete Comment Modal -->
+
+    <!-- Modal Structure -->
+    <div id="commentModal" class="modal">
         <div class="modal-content">
-          <h4 class="header-red">warning</h4>
-          <hr>
-          <p>you are about to delete your comment, are you sure?</p>
+            <h4 class="header-red">warning</h4>
+            <hr>
+            <p>you are about to delete your comment, are you sure?</p>
         </div>
         <div class="modal-footer">
-          <a href="{{ url_for('delete_comment', comment_id=comment._id ) }}" class="modal-close btn-small">yes delete</a>
-          <button class="modal-close btn-small">cancel</button>
+            <a href="{{ url_for('delete_comment', comment_id=comment._id ) }}" class="modal-close btn-small">yes
+                delete</a>
+            <button class="modal-close btn-small">cancel</button>
         </div>
-      </div>
-    </div> 
     </div>
-    
+    <div>
+        <a>
+          <i class=" fas fa-arrow-up" id="mybtn" onclick="topFunction()"></i>
+        </a>
+      </div>
+</div>
+</div>
 
 </div>
 

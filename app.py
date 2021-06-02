@@ -108,9 +108,12 @@ GET: renders login.html """
 def profile(username):
 
     user = mongo.db.users.find_one({"username": session["user"]})
-    comment = list(mongo.db.comments.find().sort('comment_datetime', -1))
+    comment = list(mongo.db.comments.find(
+        {"comment_author": session["user"]}).sort('comment_datetime', -1))
+    books = list(mongo.db.books.find({"post_author": session["user"]}))
     if session["user"]:
-        return render_template("profile.html", user=user, comment=comment)
+        return render_template("profile.html", user=user,
+            comment=comment, books=books)
 
     return redirect(url_for("login"))
 
@@ -157,9 +160,12 @@ def review(book_id):
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     comment = list(mongo.db.comments.find().sort('comment_datetime', -1))
-    related_comment = list(mongo.db.comments.find({"book_id": book_id}).sort('comment_datetime', -1))
+    related_comment = list(mongo.db.comments.find(
+        {"book_id": book_id}).sort('comment_datetime', -1)
+    )
     if book:
-        return render_template("review.html", book=book, comment=comment,
+        return render_template(
+            "review.html", book=book, comment=comment,
             related_comment=related_comment)
     else:
         return render_template('404.html')
