@@ -343,3 +343,8 @@ The 'repo' should then open and you can begin working on it by selecting the gre
 
 1. Hero Image by [Luis Tosta](https://unsplash.com/@luis_tosta) from [unsplash.com](https://unsplash.com/)
 2. Background image by [Cotton Bro](https://www.pexels.com/@cottonbro) from [pexels.com](https://www.pexels.com)
+
+### Code
+1. Error Handels 404 and 505 [Flask Documentaion](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/)
+2. 
+3. 
