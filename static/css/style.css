@@ -200,11 +200,6 @@ nav ul a:hover {
     font-size: 1.5rem;
 }
 
-.review-row img {
-    width: 50%;
-    height: 50%;
-}
-
 @media only screen and (max-width: 600px){
     .review-row img {
     max-width: 100%;
