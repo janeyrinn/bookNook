@@ -135,6 +135,7 @@ nav ul a:hover {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    background-size: cover;
     height: 80vh;
     width: 100%;
     position: relative;
