@@ -5,69 +5,69 @@
     <div class="row center-align">
         <h2 class="white-text">register</h2>
     </div>
-    
 
+    <!--Start of registration form, components from materialise-->
 
-<!--Start of registration form, components from materialise-->
-
-<div class="row">
-    <form class="col s12 offset-m2 m8" method="POST" action="{{ url_for('register') }}">
-        <div class="card-panel">
-            <div class="row">
-                <!--First & Last Name-->
-                <div class="input-field col s6">
-                    <i class="fas fa-user-circle prefix black-text"></i>
-                    <input id="firstname" name="firstname" type="text" class="validate" pattern="[a-zA-Z]{2,15}$"
-                        required>
-                    <label for="firstname">first name</label>
+    <div class="row">
+        <form class="col s12 offset-m2 m8" method="POST" action="{{ url_for('register') }}">
+            <div class="card-panel">
+                <div class="row">
+                    <!--First & Last Name-->
+                    <div class="input-field col s6">
+                        <i class="fas fa-user-circle prefix black-text"></i>
+                        <input id="firstname" name="firstname" type="text" class="validate" pattern="[a-zA-Z]{2,15}$"
+                            required>
+                        <label for="firstname">first name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="fas fa-user-circle prefix black-text"></i>
+                        <input id="lastname" name="lastname" type="text" class="validate" pattern="[a-zA-Z]{2,15}$"
+                            required>
+                        <label for="lastname">last name</label>
+                    </div>
+                    <p class="criteria-msg center-align">no spaces or special characters</p>
                 </div>
-                <div class="input-field col s6">
-                    <i class="fas fa-user-circle prefix black-text"></i>
-                    <input id="lastname" name="lastname" type="text" class="validate" pattern="[a-zA-Z]{2,15}$"
-                        required>
-                    <label for="lastname">last name</label>
+                <!--Username-->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-user-ninja prefix black-text"></i>
+                        <input id="username" name="username" type="text" class="validate" pattern="^[a-zA-Z0-9]{5,15}$"
+                            minlength="5" maxlength="15" required>
+                        <label for="username">username</label>
+                    </div>
+                    <p class="criteria-msg center-align">5 to 15 alphanumeric characters required</p>
                 </div>
-                <p class="criteria-msg center-align">no spaces or special characters</p>
+                <!--Password : RegEx pattern from W3 Schools and customised-->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-lock prefix black-text"></i>
+                        <input id="password" name="password" type="password" class="validate"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,15}" minlength="5" maxlength="15" required>
+                        <label for="password">password</label>
+                    </div>
+                    <p class="criteria-msg center-align">must contain at least one number, one uppercase and one
+                        lowercase
+                        letter, 5 to 15 alphanumeric characters required</p>
+                </div>
+                <!--Registration Button-->
+                <div class="row btn-row">
+                    <div class="col s12 center-align">
+                        <button type="submit" class="white-text btn-large">register</button>
+                    </div>
+                </div>
             </div>
-            <!--Username-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-user-ninja prefix black-text"></i>
-                    <input id="username" name="username" type="text" class="validate" pattern="^[a-zA-Z0-9]{5,15}$"
-                        minlength="5" maxlength="15" required>
-                    <label for="username">username</label>
-                </div>
-                <p class="criteria-msg center-align">5 to 15 alphanumeric characters required</p>
-            </div>
-            <!--Password : RegEx pattern from W3 Schools and customised-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-lock prefix black-text"></i>
-                    <input id="password" name="password" type="password" class="validate"
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,15}" minlength="5" maxlength="15" required>
-                    <label for="password">password</label>
-                </div>
-                <p class="criteria-msg center-align">must contain at least one number, one uppercase and one lowercase
-                    letter, 5 to 15 alphanumeric characters required</p>
-            </div>
-            <!--Registration Button-->
-            <div class="row btn-row">
-                <div class="col s12 center-align">
-                    <button type="submit" class="white-text btn-large">register</button>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-
-<!--Link to Login-->
-
-<div class="row">
-    <div class="col s12 offset-m2 m8 red-text text-accent-4 center-align">
-        <p>already registered?<a class="red-text text-accent-4 link log-link" href="{{ url_for('login') }}">log in!</a>
-        </p>
+        </form>
     </div>
-</div>
+
+    <!--Link to Login-->
+
+    <div class="row">
+        <div class="col s12 offset-m2 m8 red-text text-accent-4 center-align">
+            <p>already registered?<a class="red-text text-accent-4 link log-link" href="{{ url_for('login') }}">log
+                    in!</a>
+            </p>
+        </div>
+    </div>
 
 </div>
 {% endblock %}
