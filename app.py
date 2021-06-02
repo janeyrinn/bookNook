@@ -140,11 +140,11 @@ def browse():
 GET: renders data sets with matching text in title/author fields """
 
 
-@app.route("/filter", methods=["GET", "POST"])
-def filter():
+@app.route("/search", methods=["GET", "POST"])
+def search():
     query = request.form.get("query")
     books = list(mongo.db.books.find({"$text": {"$search": query}}))
-    return render_template("browse.html", books=books)
+    return render_template('browse.html', books=books)
 
 
 """ retrieves selected book review from db """
