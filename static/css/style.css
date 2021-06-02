@@ -159,11 +159,11 @@ nav ul a:hover {
 
 /*--------------------------------- PROFILE --*/
 
-@media only screen and (max-width: 660px){
+@media only screen and (max-width: 600px){
     .profile-title {
     font-size: 2.28rem;
 }
-
+}
 .profile-header {
     padding-bottom: 10px;
 }
@@ -246,7 +246,6 @@ nav ul a:hover {
 }
 
 .comment-body {
-    
     border-bottom: 1px solid #ddd;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
