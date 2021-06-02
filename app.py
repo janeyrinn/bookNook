@@ -147,16 +147,19 @@ def search():
     return render_template('browse.html', books=books)
 
 
-""" retrieves selected book review from db """
+""" retrieves selected book review and related
+comments(sorted by date) from db"""
 
 
 @app.route("/review/<book_id>")
 def review(book_id):
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    comment = list(mongo.db.comments.find())
+    comment = list(mongo.db.comments.find().sort('comment_datetime', -1))
+    related_comment = list(mongo.db.comments.find({"book_id": book_id}).sort('comment_datetime', -1))
     if book:
-        return render_template("review.html", book=book, comment=comment)
+        return render_template("review.html", book=book, comment=comment,
+            related_comment=related_comment)
     else:
         return render_template('404.html')
 
