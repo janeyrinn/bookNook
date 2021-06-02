@@ -69,11 +69,11 @@
     {% endif %}
 
     <!--Start of Users Book Reviews-->
+    {% if books|length > 0 %}
     <div class="container">
         <div class="row center-align">
-            <h2 class="header-gen white-text">your reviews </h2>
+            <h4 class="header-gen white-text">your reviews </h4>
         </div>
-        {% if books|length > 0 %}
         <div class="row">
             {% for book in books %}
             <div class="col card-grid s12 m6 l6">
