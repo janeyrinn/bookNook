@@ -108,8 +108,9 @@ GET: renders login.html """
 def profile(username):
 
     user = mongo.db.users.find_one({"username": session["user"]})
+    comment = list(mongo.db.comments.find().sort('comment_datetime', -1))
     if session["user"]:
-        return render_template("profile.html", user=user)
+        return render_template("profile.html", user=user, comment=comment)
 
     return redirect(url_for("login"))
 

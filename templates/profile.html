@@ -2,11 +2,11 @@
 {% block content %}
 
 <!--Start of user profile, components from materialise-->
-
+<div class="container">
 <div class="row">
     <div class="col s12 offset-m2 m8">
-        <div class="card-panel red accent-4">
-            <h2 class="center-align">
+        <div class="">
+            <h2 class="white-text center-align">
                 {{ user.username }}'s profile
             </h2>
         </div>
@@ -39,6 +39,52 @@
         </div>
         </div>
     </div>
+</div>
+        <!--Start of Related Comments Section -->
+        {% if comment|length > 0 %}
+        <div class="row s12 comment-row">
+            <h4 class="s12 white-text center-align">your comments</h4>
+            {% for comment in comment %}
+            <div class="row">
+                <div class="col s12 offset-m2 m8">
+                <ul class="comment">
+                    <li>
+                        <div class="comment-header black">
+                            <p class="col comment-title s9 white-text left">{{ comment.comment_title }}</p>
+                            {% if session.user|lower == comment.comment_author %}
+                            <a href="#commentModal" class="col s3 right btn-small modal-trigger">delete</a>
+                            {% endif %}
+                        </div>
+                        <div class="comment-body red accent-4"><p>"{{ comment.comment }}"</p>
+                        <p class="comment-data"> {{ comment.comment_datetime }}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            
+            {% endfor %}
+        </div>
+        {% endif %}
+    
+         <!-- Start of Delete Comment Modal -->
+    
+      <!-- Modal Structure -->
+      <div id="commentModal" class="modal">
+        <div class="modal-content">
+          <h4 class="header-red">warning</h4>
+          <hr>
+          <p>you are about to delete your comment, are you sure?</p>
+        </div>
+        <div class="modal-footer">
+          <a href="{{ url_for('delete_comment', comment_id=comment._id ) }}" class="modal-close btn-small">yes delete</a>
+          <button class="modal-close btn-small">cancel</button>
+        </div>
+      </div>
+    </div> 
+    </div>
+    
+
 </div>
 
 {% endblock %}
