@@ -31,21 +31,39 @@
     <div class="row comment-row">
         <h4 class="s12 white-text center-align">readers comment's</h4>
         {% for comment in comment %}
-        <div class="col s12">
-            <ul class="collapsible">
-                <li>
-                    <div class="collapsible-header black">
-                        <p class="white-text left">"{{ comment.comment_title }}"</p>
-                    </div>
-                    <div class="collapsible-body red accent-4"><p>{{ comment.comment }}</p>
-                       <p><em>{{ comment.comment_datetime }} by {{ comment.comment_author }}</em></p></div>
-                </li>
-            </ul>
-        </div>
+            <div class="row s12">
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header black">
+                            <p class="col s9 white-text left">"{{ comment.comment_title }}"</p>
+                            {% if session.user|lower == comment.comment_author %}
+                            <a href="#commentModal" class="col s3 right btn-small modal-trigger">delete</a>
+                            {% endif %}
+                        </div>
+                        <div class="collapsible-body red accent-4"><p>{{ comment.comment }}</p>
+                        <p><em>{{ comment.comment_datetime }} by {{ comment.comment_author }}</em></p></div>
+                    </li>
+                </ul>
+            </div>
         {% endfor %}
     </div>
     {% endif %}
-      
+
+     <!-- Start of Delete Comment Modal -->
+
+  <!-- Modal Structure -->
+  <div id="commentModal" class="modal">
+    <div class="modal-content">
+      <h4 class="header-red">warning</h4>
+      <hr>
+      <p>you are about to delete your comment, are you sure?</p>
+    </div>
+    <div class="modal-footer">
+      <a href="{{ url_for('delete_comment', comment_id=comment._id ) }}" class="modal-close btn-small">yes delete</a>
+      <button class="modal-close btn-small">cancel</button>
+    </div>
+  </div>
+</div> 
 </div>
 
 
