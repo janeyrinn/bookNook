@@ -126,14 +126,14 @@ def logout():
     return redirect(url_for("login"))
 
 
-""" renders search template
-GET:  renders search.html """
+""" renders browse template
+GET:  renders browse.html """
 
 
-@app.route("/search")
-def search():
+@app.route("/browse")
+def browse():
     books = list(mongo.db.books.find())
-    return render_template("search.html", books=books)
+    return render_template("browse.html", books=books)
 
 
 """ retrieves text queries from the db
@@ -144,7 +144,7 @@ GET: renders data sets with matching text in title/author fields """
 def filter():
     query = request.form.get("query")
     books = list(mongo.db.books.find({"$text": {"$search": query}}))
-    return render_template("search.html", books=books)
+    return render_template("browse.html", books=books)
 
 
 """ retrieves selected book review from db """
@@ -163,7 +163,7 @@ def review(book_id):
 
 """ adds new book review to db
 GET: renders add_review for reg' users or login for unregistered
-POST: successful submission renders search.html """
+POST: successful submission renders browse.html """
 
 
 @app.route("/add_review", methods=["GET", "POST"])
@@ -181,7 +181,7 @@ def add_review():
             }
             mongo.db.books.insert_one(book)
             flash("Your book review was successfully added")
-            return redirect(url_for('search'))
+            return redirect(url_for('browse'))
 
         return render_template("add_review.html")
     else:
@@ -193,7 +193,7 @@ def add_review():
 """ revises a db entry
 Args: <book_id> id of book review
 GET: if user logged in retrieves their review for editing
-POST: Revises entry and renders search.html """
+POST: Revises entry and renders browse.html """
 
 
 @app.route("/edit_review/<book_id>", methods=["GET", "POST"])
@@ -212,7 +212,7 @@ def edit_review(book_id):
             }
             mongo.db.books.update({"_id": ObjectId(book_id)}, revised)
             flash("Your book review was successfully updated")
-            return redirect(url_for("search"))
+            return redirect(url_for("browse"))
 
         return render_template("edit_review.html", book=book)
     else:
@@ -223,7 +223,7 @@ def edit_review(book_id):
 
 """ removes a review from the db
 Args: <book_id> id of book review
-Returns: GET: search.html on deletion"""
+Returns: GET: browse.html on deletion"""
 
 
 @app.route("/delete_review/<book_id>")
@@ -232,7 +232,7 @@ def delete_review(book_id):
     if 'user' in session:
         mongo.db.books.remove({"_id": ObjectId(book_id)})
         flash("your review was successfully deleted")
-        return redirect(url_for("search"))
+        return redirect(url_for("browse"))
     else:
         """ prevents unregistered/logged out user removing entry from db """
         flash('please login to complete this request')
@@ -242,7 +242,7 @@ def delete_review(book_id):
 """ allows logged in user to upload a comment
 Args: <book_id> id of book review
 Returns: GET renders add_comment.html
-POST on successful submission renders search.html """
+POST on successful submission renders browse.html """
 
 
 @app.route("/add_comment/<book_id>", methods=["GET", "POST"])
@@ -259,7 +259,7 @@ def add_comment(book_id):
             }
             mongo.db.comments.insert_one(comment)
             flash("your comment was successfully added")
-            return redirect(url_for("search"))
+            return redirect(url_for("browse"))
 
         book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
         return render_template("add_comment.html", book=book)
@@ -271,7 +271,7 @@ def add_comment(book_id):
 
 """ allows logged in user to delete their own comments
 Args <comment_id> id of comment in db
-Returns GET: on successful submission search.html """
+Returns GET: on successful submission browse.html """
 
 
 @app.route('/delete_comment/<comment_id>')
@@ -280,7 +280,7 @@ def delete_comment(comment_id):
     if 'user' in session:
         mongo.db.comments.remove({'_id': ObjectId(comment_id)})
         flash('your comment was successfully deleted')
-        return redirect(url_for('search'))
+        return redirect(url_for('browse'))
     else:
         """ prevents unregistered/logged in from deleting """
         flash('please login to complete this request')
