@@ -76,6 +76,21 @@ nav ul a:hover {
     text-transform: lowercase !important;
 }
 
+#mybtn {
+        display: none;
+        position: fixed; 
+        bottom: 20px; 
+        right: 30px; 
+        z-index: 99; 
+        border: none; 
+        outline: none;
+        background-color: transparent;
+        color:red;
+        cursor: pointer; 
+        padding: 20px; 
+        font-size: 50px;
+}
+
 /*--------------------------------- LINKS --*/
 
 .log-link:hover {
