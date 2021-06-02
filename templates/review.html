@@ -18,7 +18,9 @@
                 {{ book.book_review }}
                 <div>
                 <a class="white-text btn-small" href="{{ book.book_link }}">buy</a>
+                {% if session.user|lower == book.post_author %}
                 <a class="white-text btn-small" href="{{ url_for('add_comment', book_id=book._id) }}">comment</a>
+                {% endif %}
             </div>
             </p>
         </div>
