@@ -276,6 +276,7 @@ TBA
 - [Am I Responsive](http://ami.responsivedesign.is/) Used to check responsivity of code and display the mock-up in the documentation
 - [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools) Used to test and optimize the site
 - [Random Key Gen](https://randomkeygen.com/) to great random secret keys
+- [Favicon Generator](https://www.favicon-generator.org/)
 
 ### Sources
 
