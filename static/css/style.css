@@ -77,6 +77,22 @@ nav ul a:hover {
     text-transform: lowercase !important;
 }
 
+@media only screen and (max-width: 600px){
+    .btn-small {
+        background-color: black !important;
+        font-family: 'Roboto Mono', sans-serif;
+        text-transform: lowercase !important;
+        font-size: 10px;
+    }
+    
+    .btn-small:hover {
+        background-color:#d50000 !important;
+        font-family: 'Roboto Mono', sans-serif;
+        text-transform: lowercase !important;
+        font-size: 10px;
+    }
+}
+
 #mybtn {
         display: none;
         position: fixed; 
