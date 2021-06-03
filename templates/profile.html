@@ -52,7 +52,7 @@
                         <div class="comment-header black">
                             <p class="col comment-title s9 white-text left">{{ comment.comment_title }}</p>
                             {% if session.user|lower == comment.comment_author %}
-                            <a href="#commentModal" class="col s3 right btn-small modal-trigger">delete</a>
+                            <a href="#commentModal-{{loop.index}}" class="col s3 right btn-small modal-trigger">delete</a>
                             {% endif %}
                         </div>
                         <div class="comment-body red accent-4">
@@ -63,7 +63,19 @@
                 </ul>
             </div>
         </div>
-
+    <!-- Start of Delete Comment Modal -->
+    <div id="commentModal-{{loop.index}}" class="modal">
+        <div class="modal-content">
+            <h4 class="header-red">warning</h4>
+            <hr>
+            <p>you are about to delete your comment, are you sure?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="{{ url_for('delete_comment', comment_id=comment._id ) }}" class="modal-close btn-small">yes
+                delete</a>
+            <button class="modal-close btn-small">cancel</button>
+        </div>
+    </div>
         {% endfor %}
     </div>
     {% endif %}
@@ -104,20 +116,6 @@
             {% endif %}
         </div>
     </div>
-    <!-- Start of Delete Comment Modal -->
-    <div id="commentModal" class="modal">
-        <div class="modal-content">
-            <h4 class="header-red">warning</h4>
-            <hr>
-            <p>you are about to delete your comment, are you sure?</p>
-        </div>
-        <div class="modal-footer">
-            <a href="{{ url_for('delete_comment', comment_id=comment._id ) }}" class="modal-close btn-small">yes
-                delete</a>
-            <button class="modal-close btn-small">cancel</button>
-        </div>
-    </div>
-
     <!--Start of Scroll to Top Button-->
     <div>
         <a>
