@@ -8,7 +8,8 @@
 
     <!--Start of Book Review -->
     <div class="row review-row left">
-        <div class="center-align review-img"><img class="col s12 m6" src="{{ book.book_img }}" alt="Bookcover image for {{ book.book_title }}">
+        <div class="center-align review-img"><img class="col s12 m6" src="{{ book.book_img }}"
+                alt="Bookcover image for {{ book.book_title }}">
         </div>
         <div class="col s12 m6">
             <h2 class="header-gen">{{ book.book_title }}</h2>
@@ -42,27 +43,27 @@
                         {% endif %}
                     </div>
                     <div class="comment-body red accent-4">
-                        <p>"{{ comment.comment }}"</p>
+                        <p>{{ comment.comment }}</p>
                         <p class="comment-data"> by {{ comment.comment_author }} {{ comment.comment_datetime }}</p>
                     </div>
                 </li>
             </ul>
         </div>
-            <!-- Start of Delete Comment Modal -->
-    <div id="commentModal-{{loop.index}}" class="modal">
-        <div class="modal-content">
-            <h4 class="header-red">warning</h4>
-            <hr>
-            <p>you are about to delete your comment, are you sure?</p>
-        </div>
-        <div class="modal-footer">
-            <a href="{{ url_for('delete_comment', comment_id=comment._id ) }}" class="modal-close btn-small">yes
-                delete</a>
-            <button class="modal-close btn-small">cancel</button>
-        </div>
     </div>
+        <!-- Start of Delete Comment Modal -->
+        <div id="commentModal-{{loop.index}}" class="modal">
+            <div class="modal-content">
+                <h4 class="header-red">warning</h4>
+                <hr>
+                <p>you are about to delete your comment, are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ url_for('delete_comment', comment_id=comment._id ) }}" class="modal-close btn-small">yes
+                    delete</a>
+                <button class="modal-close btn-small">cancel</button>
+            </div>
+        </div>
+    {% endfor %}
 </div>
-        {% endfor %}
-    </div>
-    {% endif %}
+{% endif %}
 {% endblock %}
