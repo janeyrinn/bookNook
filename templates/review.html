@@ -38,7 +38,7 @@
                     <div class="comment-header black">
                         <p class="col comment-title s9 white-text left">{{ comment.comment_title }}</p>
                         {% if session.user %}
-                        <a href="#commentModal" class="col s3 right btn-small modal-trigger">delete</a>
+                        <a href="#commentModal-{{loop.index}}" class="col s3 right btn-small modal-trigger">delete</a>
                         {% endif %}
                     </div>
                     <div class="comment-body red accent-4">
@@ -48,12 +48,8 @@
                 </li>
             </ul>
         </div>
-        {% endfor %}
-    </div>
-    {% endif %}
-
-    <!-- Start of Delete Comment Modal -->
-    <div id="commentModal" class="modal">
+            <!-- Start of Delete Comment Modal -->
+    <div id="commentModal-{{loop.index}}" class="modal">
         <div class="modal-content">
             <h4 class="header-red">warning</h4>
             <hr>
@@ -66,5 +62,7 @@
         </div>
     </div>
 </div>
-
+        {% endfor %}
+    </div>
+    {% endif %}
 {% endblock %}
