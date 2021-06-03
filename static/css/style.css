@@ -256,3 +256,11 @@ nav ul a:hover {
     background-color:#d50000;
     padding: 2rem;
 }
+
+/*--------------------------------- ERROR PAGES (404,500) --*/
+
+@media only screen and (max-width: 600px){}
+.error-text{
+    font-size: 2rem;
+}
+}
