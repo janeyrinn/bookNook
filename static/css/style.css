@@ -250,6 +250,7 @@ nav ul a:hover {
 }
 }
 
+/*--------------------------------- COMMENTS --*/
 .comment {
     border-top: 1px solid #ddd;
     border-right: 1px solid #ddd;
@@ -289,6 +290,16 @@ nav ul a:hover {
     box-sizing: border-box;
     background-color:#d50000;
     padding: 2rem;
+}
+
+.add-comment-data {
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 600px){
+    .add-comment-data {
+        font-size: 15px;
+    }
 }
 
 /*--------------------------------- ERROR PAGES (404,500) --*/
