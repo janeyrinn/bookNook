@@ -221,10 +221,19 @@ nav ul a:hover {
     font-size: 1rem !important;
 }
 
-.card-title p {
+.card-author {
     font-size: .5rem !important;
 }
 
+@media only screen and (max-width: 290px){
+    .card-title {
+        font-size: .75rem !important;
+    }
+    
+    .card-author {
+        font-size: .55rem !important;
+    }
+    }
 /*--------------------------------- REVIEW PAGE --*/
 
 .review-row {
