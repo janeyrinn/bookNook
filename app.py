@@ -1,4 +1,5 @@
-""" imports all dependencies """
+'''Imports opperating system
+    and dependencies to support the app functionality'''
 import os
 import datetime
 from flask import (
@@ -11,7 +12,6 @@ if os.path.exists("env.py"):
     import env
 
 
-""" connects flask app to mongoDB and required database """
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -34,7 +34,6 @@ def sign_up():
         POST: renders profile.html of new user
         GET: renders sign_up.html"""
     if request.method == 'POST':
-        """ check if username already exists in db """
         existing_user = mongo.db.users.find_one(
             {'username': request.form.get('username').lower()})
 
@@ -42,7 +41,6 @@ def sign_up():
             flash('username already exists')
             return redirect(url_for('sign_up'))
 
-        """ creates new user dictionary in db """
         sign_up = {
             "firstname": request.form.get("firstname").lower(),
             "lastname": request.form.get("lastname").lower(),
@@ -51,7 +49,6 @@ def sign_up():
         }
         mongo.db.users.insert_one(sign_up)
 
-        """ put the newly created user into a session cookie """
         session["user"] = request.form.get("username").lower()
         flash("you are successfully signed up")
         return redirect(url_for("profile", username=session["user"]))
@@ -65,12 +62,10 @@ def login():
     POST: renders profile.html of user
     GET: renders login.html """
     if request.method == "POST":
-        """ check if username already exists in db """
         signed_up_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
         if signed_up_user:
-            """ checks input against existing password in db """
             if check_password_hash(
                 signed_up_user["password"], request.form.get("password")
             ):
@@ -80,12 +75,10 @@ def login():
                 return redirect(url_for(
                     "profile", username=session["user"]))
             else:
-                """ error message for invalid password entry """
                 flash("Oops check your username/password and try again")
                 return redirect(url_for("login"))
 
         else:
-            """ no match for username """
             flash("Oops check your username/password and try again")
             return redirect(url_for("login"))
 
@@ -173,7 +166,6 @@ def add_review():
 
         return render_template("add_review.html")
     else:
-        """ prevents unsigned up/logged out user uploading to db """
         flash('please login to complete this request')
         return redirect(url_for('login'))
 
@@ -202,7 +194,6 @@ def edit_review(book_id):
 
         return render_template("edit_review.html", book=book)
     else:
-        """ prevents anon user editing to db """
         flash('please login to complete this request')
         return redirect(url_for('login'))
 
@@ -217,7 +208,6 @@ def delete_review(book_id):
         flash("your review was successfully deleted")
         return redirect(url_for("browse"))
     else:
-        """ prevents anon user removing entry from db """
         flash('please login to complete this request')
         return redirect(url_for('login'))
 
@@ -245,7 +235,6 @@ def add_comment(book_id):
         book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
         return render_template("add_comment.html", book=book)
     else:
-        """ prevents anon user from uploading """
         flash('please login to complete this request')
         return redirect(url_for('login'))
 
@@ -260,7 +249,6 @@ def delete_comment(comment_id):
         flash('your comment was successfully deleted')
         return redirect(url_for('browse'))
     else:
-        """ prevents anon from deleting """
         flash('please login to complete this request')
         return redirect(url_for('login'))
 
