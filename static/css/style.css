@@ -230,12 +230,12 @@ nav ul a:hover {
     .review-row img {
     max-width: 100%;
 }
-.header-gen {
-    font-size:1.5rem;
+.review-title {
+    font-size:1.50rem;
 }
 .review-item {
     font-style: oblique;
-    font-size: 1rem;
+    font-size: .75rem;
 }
 }
 
