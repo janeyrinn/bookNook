@@ -37,7 +37,8 @@
         <li>
           <div class="card medium">
             <div class="card-image">
-              <img src="{{ book.book_img }}">
+              <img src="{{ book.book_img }}" alt="book cover image for {{ book.book_title }}" 
+              aria-hidden="true">
             </div>
             <div class="card-content">
               <p class="card-title">{{ book.book_title }}</p>
