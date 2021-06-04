@@ -18,7 +18,7 @@ body {
     background-color: black;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 800px){
     body {
         font-family: 'Roboto Mono', sans-serif;
         display: flex;
