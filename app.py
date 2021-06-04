@@ -21,24 +21,18 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-""" injects home page template into the base template
-GET: renders home.html"""
-
-
 @app.route('/')
 def homepage():
-
+    """ injects home page template into the base template
+        GET: renders home.html"""
     return render_template('home.html')
-
-
-""" adds a new user to the database
-POST: renders profile.html of new user
-GET: renders sign_up.html"""
 
 
 @app.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
-
+    """ adds a new user to the database
+        POST: renders profile.html of new user
+        GET: renders sign_up.html"""
     if request.method == 'POST':
         """ check if username already exists in db """
         existing_user = mongo.db.users.find_one(
@@ -65,13 +59,11 @@ def sign_up():
     return render_template("sign_up.html")
 
 
-""" logs an existing user into their profile
-POST: renders profile.html of user
-GET: renders login.html """
-
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """ logs an existing user into their profile
+    POST: renders profile.html of user
+    GET: renders login.html """
     if request.method == "POST":
         """ check if username already exists in db """
         signed_up_user = mongo.db.users.find_one(
@@ -100,15 +92,12 @@ def login():
     return render_template("login.html")
 
 
-""" retrieves session users username from db
-Args: <username> signed up users username
-POST: renders profile.html of user
-GET: renders login.html """
-
-
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-
+    """ retrieves session users username from db
+    Args: <username> signed up users username
+    POST: renders profile.html of user
+    GET: renders login.html """
     user = mongo.db.users.find_one({"username": session["user"]})
     comment = list(mongo.db.comments.find(
         {"comment_author": session["user"]}).sort('comment_datetime', -1))
@@ -120,46 +109,36 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-""" removes user session cookies which 'logs them out' of session
-GET: renders login.html """
-
-
 @app.route("/logout")
 def logout():
-
+    """ removes user session cookies which 'logs them out' of session
+    GET: renders login.html """
     flash("you've been logged out successfully, come back soon!")
     session.pop("user")
     return redirect(url_for("login"))
 
 
-""" renders browse template
-GET:  renders browse.html """
-
-
 @app.route("/browse")
 def browse():
+    """ renders browse template
+    GET:  renders browse.html """
     books = list(mongo.db.books.find())
     return render_template("browse.html", books=books)
 
 
-""" retrieves text queries from the db
-GET: renders data sets with matching text in title/author fields """
-
-
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """ retrieves text queries from the db
+    GET: renders data sets with matching text in title/author fields """
     query = request.form.get("query")
     books = list(mongo.db.books.find({"$text": {"$search": query}}))
     return render_template('browse.html', books=books)
 
 
-""" retrieves selected book review and related
-comments(sorted by date) from db"""
-
-
 @app.route("/review/<book_id>")
 def review(book_id):
-
+    """ retrieves selected book review and related
+    comments(sorted by date) from db"""
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     comment = list(mongo.db.comments.find().sort('comment_datetime', -1))
     related_comment = list(mongo.db.comments.find(
@@ -173,14 +152,11 @@ def review(book_id):
         return render_template('404.html')
 
 
-""" adds new book review to db
-GET: renders add_review for signed up users or login for anon user
-POST: successful submission renders browse.html """
-
-
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
-
+    """ adds new book review to db
+    GET: renders add_review for signed up users or login for anon user
+    POST: successful submission renders browse.html """
     if 'user' in session:
         if request.method == "POST":
             book = {
@@ -202,14 +178,12 @@ def add_review():
         return redirect(url_for('login'))
 
 
-""" revises a db entry
-Args: <book_id> id of book review
-GET: if user logged in retrieves their review for editing
-POST: Revises entry and renders browse.html """
-
-
 @app.route("/edit_review/<book_id>", methods=["GET", "POST"])
 def edit_review(book_id):
+    """ revises a db entry
+    Args: <book_id> id of book review
+    GET: if user logged in retrieves their review for editing
+    POST: Revises entry and renders browse.html """
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
 
     if 'user' in session:
@@ -233,14 +207,11 @@ def edit_review(book_id):
         return redirect(url_for('login'))
 
 
-""" removes a review from the db
-Args: <book_id> id of book review
-Returns: GET: browse.html on deletion"""
-
-
 @app.route("/delete_review/<book_id>")
 def delete_review(book_id):
-
+    """ removes a review from the db
+    Args: <book_id> id of book review
+    Returns: GET: browse.html on deletion"""
     if 'user' in session:
         mongo.db.books.remove({"_id": ObjectId(book_id)})
         flash("your review was successfully deleted")
@@ -251,14 +222,12 @@ def delete_review(book_id):
         return redirect(url_for('login'))
 
 
-""" allows logged in user to upload a comment
-Args: <book_id> id of book review
-Returns: GET renders add_comment.html
-POST on successful submission renders browse.html """
-
-
 @app.route("/add_comment/<book_id>", methods=["GET", "POST"])
 def add_comment(book_id):
+    """ allows logged in user to upload a comment
+    Args: <book_id> id of book review
+        Returns: GET renders add_comment.html
+    POST on successful submission renders browse.html """
     if 'user' in session:
         if request.method == "POST":
             comment = {
@@ -281,14 +250,11 @@ def add_comment(book_id):
         return redirect(url_for('login'))
 
 
-""" allows logged in user to delete their own comments
-Args <comment_id> id of comment in db
-Returns GET: on successful submission browse.html """
-
-
 @app.route('/delete_comment/<comment_id>')
 def delete_comment(comment_id):
-
+    """ allows logged in user to delete their own comments
+    Args <comment_id> id of comment in db
+    Returns GET: on successful submission browse.html """
     if 'user' in session:
         mongo.db.comments.remove({'_id': ObjectId(comment_id)})
         flash('your comment was successfully deleted')
@@ -299,27 +265,21 @@ def delete_comment(comment_id):
         return redirect(url_for('login'))
 
 
-""" handles unfound data errors
-Arg: 404 error code
-Returns: GET renders 404.html """
-
-
 # code found in flask documentation
 @app.errorhandler(404)
-def page_not_found(e):
-
-    return render_template('404.html', e=e), 404
-
-
-""" handles internal server errors
-Arg: 500 error code
-Returns: GET renders 500.html """
+def page_not_found(error):
+    """ handles unfound data errors
+    Arg: 404 error code
+    Returns: GET renders 404.html """
+    return render_template('404.html', error=error), 404
 
 
 @app.errorhandler(500)
-def internal_server_error(e):
-
-    return render_template('500.html'), 500
+def internal_server_error(error):
+    """ handles internal server errors
+    Arg: 500 error code
+    Returns: GET renders 500.html """
+    return render_template('500.html', error=error), 500
 
 
 if __name__ == '__main__':
