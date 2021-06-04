@@ -33,12 +33,10 @@ body {
 
 nav ul a {
     color: black;
-    font-style: bold;
 }
 
 nav ul a:hover {
     color: #ff0000;
-    font-style: bold;
 }
 
 /*--------------------------------- FOOTER --*/
@@ -140,7 +138,7 @@ nav ul a:hover {
 
 .criteria-msg {
     font-size: .75rem;
-    font-style: bold italic;  
+    font-style: italic;  
 }
 .btn-row {
     margin-top: 2rem;
@@ -176,7 +174,6 @@ nav ul a:hover {
     background-color: white;
     color: black;
     margin-top: 25px;
-    font-style: bold;
 }
 
 .intro-heading {
