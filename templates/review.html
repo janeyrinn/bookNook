@@ -50,20 +50,27 @@
             </ul>
         </div>
     </div>
-        <!-- Start of Delete Comment Modal -->
-        <div id="commentModal-{{loop.index}}" class="modal">
-            <div class="modal-content">
-                <h4 class="header-red">warning</h4>
-                <hr>
-                <p>you are about to delete your comment, are you sure?</p>
-            </div>
-            <div class="modal-footer">
-                <a href="{{ url_for('delete_comment', comment_id=comment._id ) }}" class="modal-close btn-small">yes
-                    delete</a>
-                <button class="modal-close btn-small">cancel</button>
-            </div>
+    <!-- Start of Delete Comment Modal -->
+    <div id="commentModal-{{loop.index}}" class="modal">
+        <div class="modal-content">
+            <h4 class="header-red">warning</h4>
+            <hr>
+            <p>you are about to delete your comment, are you sure?</p>
         </div>
+        <div class="modal-footer">
+            <a href="{{ url_for('delete_comment', comment_id=comment._id ) }}" class="modal-close btn-small">yes
+                delete</a>
+            <button class="modal-close btn-small">cancel</button>
+        </div>
+    </div>
     {% endfor %}
+
+    {% endif %}
+    <!--Start of Scroll to Top Button-->
+    <div>
+        <a>
+            <i class=" fas fa-arrow-up" id="mybtn" onclick="topFunction()"></i>
+        </a>
+    </div>
 </div>
-{% endif %}
 {% endblock %}
