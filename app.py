@@ -1,5 +1,6 @@
 """ imports all dependencies """
 import os
+import datetime
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -8,9 +9,9 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
-import datetime
 
-""" connects app to mongoDB and required database """
+
+""" connects flask app to mongoDB and required database """
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -20,47 +21,48 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-""" injects home page template into the base template """
+""" injects home page template into the base template
+GET: renders home.html"""
 
 
-@app.route("/")
+@app.route('/')
 def homepage():
 
-    return render_template("home.html")
+    return render_template('home.html')
 
 
 """ adds a new user to the database
 POST: renders profile.html of new user
-GET: renders register.html to register user"""
+GET: renders sign_up.html"""
 
 
-@app.route("/register", methods=["GET", "POST"])
-def register():
+@app.route('/sign_up', methods=['GET', 'POST'])
+def sign_up():
 
-    if request.method == "POST":
+    if request.method == 'POST':
         """ check if username already exists in db """
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {'username': request.form.get('username').lower()})
 
         if existing_user:
-            flash("username already exists")
-            return redirect(url_for("register"))
+            flash('username already exists')
+            return redirect(url_for('sign_up'))
 
         """ creates new user dictionary in db """
-        register = {
+        sign_up = {
             "firstname": request.form.get("firstname").lower(),
             "lastname": request.form.get("lastname").lower(),
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
-        mongo.db.users.insert_one(register)
+        mongo.db.users.insert_one(sign_up)
 
         """ put the newly created user into a session cookie """
         session["user"] = request.form.get("username").lower()
-        flash("you are successfully registered")
+        flash("you are successfully signed up")
         return redirect(url_for("profile", username=session["user"]))
 
-    return render_template("register.html")
+    return render_template("sign_up.html")
 
 
 """ logs an existing user into their profile
@@ -72,13 +74,13 @@ GET: renders login.html """
 def login():
     if request.method == "POST":
         """ check if username already exists in db """
-        registered_user = mongo.db.users.find_one(
+        signed_up_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
-        if registered_user:
+        if signed_up_user:
             """ checks input against existing password in db """
             if check_password_hash(
-                registered_user["password"], request.form.get("password")
+                signed_up_user["password"], request.form.get("password")
             ):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome back, {}".format(
@@ -99,7 +101,7 @@ def login():
 
 
 """ retrieves session users username from db
-Args: <username> registerered users username
+Args: <username> signed up users username
 POST: renders profile.html of user
 GET: renders login.html """
 
@@ -112,8 +114,8 @@ def profile(username):
         {"comment_author": session["user"]}).sort('comment_datetime', -1))
     books = list(mongo.db.books.find({"post_author": session["user"]}))
     if session["user"]:
-        return render_template("profile.html", user=user,
-            comment=comment, books=books)
+        return render_template(
+            "profile.html", user=user, comment=comment, books=books)
 
     return redirect(url_for("login"))
 
@@ -172,7 +174,7 @@ def review(book_id):
 
 
 """ adds new book review to db
-GET: renders add_review for reg' users or login for unregistered
+GET: renders add_review for signed up users or login for anon user
 POST: successful submission renders browse.html """
 
 
@@ -195,7 +197,7 @@ def add_review():
 
         return render_template("add_review.html")
     else:
-        """ prevents unregistered/logged out user uploading to db """
+        """ prevents unsigned up/logged out user uploading to db """
         flash('please login to complete this request')
         return redirect(url_for('login'))
 
@@ -226,7 +228,7 @@ def edit_review(book_id):
 
         return render_template("edit_review.html", book=book)
     else:
-        """ prevents unregistered/logged out user editing to db """
+        """ prevents anon user editing to db """
         flash('please login to complete this request')
         return redirect(url_for('login'))
 
@@ -244,7 +246,7 @@ def delete_review(book_id):
         flash("your review was successfully deleted")
         return redirect(url_for("browse"))
     else:
-        """ prevents unregistered/logged out user removing entry from db """
+        """ prevents anon user removing entry from db """
         flash('please login to complete this request')
         return redirect(url_for('login'))
 
@@ -274,7 +276,7 @@ def add_comment(book_id):
         book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
         return render_template("add_comment.html", book=book)
     else:
-        """ prevents unregistered/logged in from uploading """
+        """ prevents anon user from uploading """
         flash('please login to complete this request')
         return redirect(url_for('login'))
 
@@ -292,7 +294,7 @@ def delete_comment(comment_id):
         flash('your comment was successfully deleted')
         return redirect(url_for('browse'))
     else:
-        """ prevents unregistered/logged in from deleting """
+        """ prevents anon from deleting """
         flash('please login to complete this request')
         return redirect(url_for('login'))
 

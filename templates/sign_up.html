@@ -3,13 +3,13 @@
 
 <div class="container">
     <div class="row center-align">
-        <h2 class="white-text">register</h2>
+        <h2 class="white-text">sign up</h2>
     </div>
 
     <!--Start of registration form, components from materialise-->
 
     <div class="row">
-        <form class="col s12 offset-m2 m8" method="POST" action="{{ url_for('register') }}">
+        <form class="col s12 offset-m2 m8" method="POST" action="{{ url_for('sign_up') }}">
             <div class="card-panel">
                 <div class="row">
                     <!--First & Last Name-->
@@ -52,7 +52,7 @@
                 <!--Registration Button-->
                 <div class="row btn-row">
                     <div class="col s12 center-align">
-                        <button type="submit" class="white-text btn-large">register</button>
+                        <button type="submit" class="white-text btn-large">sign up</button>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
 
     <div class="row">
         <div class="col s12 offset-m2 m8 red-text text-accent-4 center-align">
-            <p>already registered?<a class="red-text text-accent-4 link log-link" href="{{ url_for('login') }}">log
+            <p>already signed up?<a class="red-text text-accent-4 link log-link" href="{{ url_for('login') }}">log
                     in!</a>
             </p>
         </div>
