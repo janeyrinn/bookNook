@@ -302,6 +302,12 @@ nav ul a:hover {
     }
 }
 
+@media only screen and (max-width: 400px){
+    .add-comment-data {
+        font-size: 12px;
+    }
+}
+
 /*--------------------------------- ERROR PAGES (404,500) --*/
 
 @media only screen and (max-width: 600px){}
