@@ -12,19 +12,19 @@
   <div class="row card-panel white">
     <form action="{{ url_for('search')}}" method="post" class="col s12">
       <div class="row valign-wrapper center-align">
-        <div class="input-field col s12 m8">
+        <div class="input-field col s12">
           <i class="fas fa-search prefix black-text"></i>
           <input type="text" name="query" id="query" minlength="2" class="validate" required>
           <label for="query">Search</label>
         </div>
       </div>
-        <div class="row right">
+      <div class="row right">
         <div class="col">
           <a href="{{ url_for('browse') }}" class="btn-small">reset</a>
           <button type="submit" class="btn-small">search</button>
         </div>
       </div>
-      
+
     </form>
   </div>
 
@@ -32,7 +32,7 @@
   {% if books|length > 0 %}
   <div class="row">
     {% for book in books %}
-    <div class="col card-grid s12 m6 l6 xl3">
+    <div class="col s12 m6 l6 xl3">
       <ul>
         <li>
           <div class="card medium">
@@ -58,12 +58,15 @@
     {% endfor %}
   </div>
   {% else %}
-    <div class="row center-align">
-      <h2 class="header-red">oops no results found!</h2>
-    </div>
+  <div class="row center-align">
+    <h2 class="header-red">oops no results found!</h2>
+  </div>
   {% endif %}
-
+  <!--Start of Scroll to Top Button-->
+  <div>
+    <a>
+      <i class=" fas fa-arrow-up" id="mybtn" onclick="topFunction()"></i>
+    </a>
+  </div>
 </div>
-
-
 {% endblock %}
