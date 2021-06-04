@@ -173,11 +173,11 @@ nav ul a:hover {
 .intro-box {
     background-color: white;
     color: black;
-    margin-top: 25px;
 }
 
 .intro-heading {
     font-size: 3rem;
+    margin: 30px 30px;
 }
 
 .intro-text {
