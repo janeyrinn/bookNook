@@ -12,8 +12,6 @@
         type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
-    {% block style %}
-    {% endblock %}
     <title>booknook</title>
 </head>
 
@@ -60,7 +58,7 @@
     </header>
 
     <!--Start of section: holds flash messages-->
-    <section>
+    
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
@@ -70,7 +68,7 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
-    </section>
+    
 
     <!--Start of main container: holds templates-->
     <main>
