@@ -289,6 +289,17 @@ _General sources of information for structure functionality and styling._
 
 ## Testing
 
+### Code Validity
+
+The syntax and validity of the HTML and JavaScript code used were passed through the two validators mentioned below and passed all tests without errors.
+
+1. [W3C](https://validator.w3.org/) used to validate HTML code.
+2. [JS Hint](https://jshint.com/) used to validate JavaScript code.
+
+The syntax and validity of the CSS code was passed throught the below validator and passed without error but did show warnings related to vendor prefixes.I have been advised by tutor support that this is fine for the submission of the MS3 and should not affect the outcome of the submission as it is unavoidable with the current version of this validator.
+
+1.[W3c Jigsaw](https://jigsaw.w3.org/css-validator/) used to validate CSS code.
+
 
 ## Deployment
 
