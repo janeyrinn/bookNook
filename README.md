@@ -194,7 +194,7 @@ TBA
 1. Responsive to different screen sizes.
 2. Supported by Chrome, Microsoft Edge, and Firefox browsers.
 3. Adapted for users with special accessibility requirements where possible.
-4. There will be 8 pages: Home page, Search page, Profile page, Login page, Registration page, Add/Edit Book page, Review Page, Add Comment page.
+4. There will be 11 pages: Home page, Search/Browse page, Profile page, Login page, Sign up page, Add/Edit Review page, Review Page, Add Comment page, 404 error and 500 error page.
 
         - Each page will have a navigation header
         - Each page will have a footer
@@ -203,12 +203,14 @@ TBA
 5. Each page will have a 'sticky' navbar
 
         - White with black text
-        - Text logo on the left
+        - Text logo on the left, center on smaller screens
         - Menu options on the right
         - The logo will route back to the home page
         - Menu options will change to red on hover
         - On mobile devices, the menu items will switch to a toggle button and slide in from the right when button is clicked
         - The menu items will have the same styling in the toggle view
+        - Anon users will see log in, sign up and browse
+        - Registered users will see browse, add review, profile and logout
 
  6. The home page will have:
 
@@ -222,16 +224,18 @@ TBA
 8. The profile page will have: 
 
         - An area displaying the users information
-        - An area displaying books the user has already added with an option to edit these uploads
+        - An area displaying books and comments the user has already added
+        - There will be an option to edit/delete reviews, and a delete option for comments 
 
 9. The add/edit page will have a form that has: 
 
         - blank fields for adding information
         - prepopulated fields for editing
-        - an edit button which saves changes
+        - a button which saves changes
         - a delete button that will remove the object from the site/database
+        - a cancel button
 
-10. The search page will have a:
+10. The browse page will have a:
 
         - search bar allowing users to search by title
         - reset button to clear the last search
@@ -320,7 +324,6 @@ Testing was done on three browsers; Chome v88, MicroSoft Edge v88 and FireFox v8
 > - iPhone 6/7/8 Plus (414 x 736)
 > - iPhone X (375 x 812)
 > - iPad (768 x 1024)
-> - iPad Pro (1024 x 1366)
 > - Surface Duo (540 x 720)
 > - Galaxy Fold (280 x 653)
 > - Laptop (1440 x 900)
@@ -331,7 +334,6 @@ Testing was done on three browsers; Chome v88, MicroSoft Edge v88 and FireFox v8
 > - Galaxy S5 (360 x 640)
 > - Galaxy S9 (360 x 740)
 > - iPad (768 x 1024)
-> - iPad Pro (1024 x 1366)
 > - iPhone 5/SE (320 x 568)
 > - iPhone 6/7/8 (375 x 667)
 > - iPhone 6/7/8 Plus (414 x 736)
