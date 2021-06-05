@@ -40,6 +40,8 @@
                         <p class="col comment-title s9 white-text left">{{ comment.comment_title }}</p>
                         {% if session.user|lower == comment.comment_author %}
                         <a href="#commentModal-{{loop.index}}" class="col s3 right btn-small modal-trigger">delete</a>
+                        {% else %}
+                        <div class="col s3 right"></div>
                         {% endif %}
                     </div>
                     <div class="comment-body red accent-4">
