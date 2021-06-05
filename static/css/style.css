@@ -29,6 +29,16 @@ body {
     }
 }
 
+@media only screen and (max-width: 600px){
+h2 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+}
+
 /*--------------------------------- NAV BAR --*/
 
 nav ul a {
