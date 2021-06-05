@@ -51,9 +51,9 @@ Booknook is a fully responsive fullstack frontend data driven application using 
 
 A simulation of the website on desktop and mobile devices can be seen below.
 
-![Design Simulation](url)
+![Design Simulation](read-me/design-simulation.png)
 
-The live site can be accessed [*here*]().
+The live site can be accessed [*here*](https://booknook-app.herokuapp.com/).
 
 *Please note: To open any links in this document in a new browser tab, please press `CTRL + Click`.*
 
