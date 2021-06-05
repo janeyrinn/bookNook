@@ -363,7 +363,7 @@ The 'repo' should then open and you can begin working on it by selecting the gre
 
 ### Deployment via Heroku
 
-["Heroku is a container-based cloud Platform as a Service (PaaS). Developers use Heroku to deploy, manage, and scale modern apps"](https://www.heroku.com/about#:~:text=Heroku%20is%20a%20container%2Dbased,manage%2C%20and%20scale%20modern%20apps.&text=Heroku%20is%20fully%20managed%2C%20giving,servers%2C%20hardware%2C%20or%20infrastructure.) Before you deploy to Heroku you will need to add a requirements.txt file and a Procfile to your application. Heroku needs both of these files to run, they must be pushed to the repository on GitHub.
+"[Heroku](https://www.heroku.com/about#:~:text=Heroku%20is%20a%20container%2Dbased,manage%2C%20and%20scale%20modern%20apps.&text=Heroku%20is%20fully%20managed%2C%20giving,servers%2C%20hardware%2C%20or%20infrastructure.)is a container-based cloud Platform as a Service (PaaS). Developers use Heroku to deploy, manage, and scale modern apps" Before you deploy to Heroku you will need to add a requirements.txt file and a Procfile to your application. Heroku needs both of these files to run, they must be pushed to the repository on GitHub.
 
 **To deploy your application to Heroku**
 
