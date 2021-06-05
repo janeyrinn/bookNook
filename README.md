@@ -39,6 +39,7 @@ The live site can be accessed [*here*](https://booknook-app.herokuapp.com/).
 7. [Credits](#credits)
     * [Images](#Images)
     * [Code](#Code)
+    * [Content](#Content)
     * [Acknowledgements](#Acknowledgements)
 
 ## Strategic Purpose Overview
@@ -409,4 +410,6 @@ The 'repo' should then open and you can begin working on it by selecting the gre
 ### Code
 1. Error Handels 404 and 505 [Flask Documentaion](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/)
 2. Scroll to top button, Java Script [w3schools](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp)
-3. 
+
+### Content
+1. All review content was taken from [The Book Depository](https://www.bookdepository.com/) 
