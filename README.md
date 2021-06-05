@@ -298,8 +298,56 @@ The syntax and validity of the HTML and JavaScript code used were passed through
 
 The syntax and validity of the CSS code was passed throught the below validator and passed without error but did show warnings related to vendor prefixes.I have been advised by tutor support that this is fine for the submission of the MS3 and should not affect the outcome of the submission as it is unavoidable with the current version of this validator.
 
-1.[W3c Jigsaw](https://jigsaw.w3.org/css-validator/) used to validate CSS code.
+1. [W3c Jigsaw](https://jigsaw.w3.org/css-validator/) used to validate CSS code.
 
+### Testing Premise
+
+The entire site was tested under the three premises of :
+
+        > User Stories
+        > Business Objective
+        > Features
+
+Testing was done on three browsers; Chome v88, MicroSoft Edge v88 and FireFox v83 on the below screen sizes:
+
+> **Chrome & Microsoft Edge**
+> - Moto G4 (640 x 360)
+> - Galaxy S5 (360 x 640)
+> - Pixel 2 (411 x 731)
+> - Pixel 2 XL (411 x 823)
+> - iPhone 5/SE (320 x 568)
+> - iPhone 6/7/8 (375 x 667)
+> - iPhone 6/7/8 Plus (414 x 736)
+> - iPhone X (375 x 812)
+> - iPad (768 x 1024)
+> - iPad Pro (1024 x 1366)
+> - Surface Duo (540 x 720)
+> - Galaxy Fold (280 x 653)
+> - Laptop (1440 x 900)
+
+> **Mozilla Fire Fox**
+> - Galaxy Note 3 (360 x 640)
+> - Galaxy Note 9 (414 x 846)
+> - Galaxy S5 (360 x 640)
+> - Galaxy S9 (360 x 740)
+> - iPad (768 x 1024)
+> - iPad Pro (1024 x 1366)
+> - iPhone 5/SE (320 x 568)
+> - iPhone 6/7/8 (375 x 667)
+> - iPhone 6/7/8 Plus (414 x 736)
+> - iPhone X/XS (375 x 812)
+> - i Phone XR (414 x 896)
+> - Laptop (1440 x 900)
+
+Testing was documented using Microsoft Excel and the full spreadsheet can be found [*here*](testing/testing.xlsx).
+
+The live site  was also analysed using Google Developer Tools Lighthouse feature, where it scored highly for accessibility, best practices and SEO.
+The performance of the site scored in the median range despite all images being compressed and sized to the best of the developers ability. Further adjustments to improve this rating
+are outside the scope of the assignment and the developers skill set at this time but will be researched and improved going forward.
+
+![Lighthouse Results](testing/lighthouse.png)
+
+Bugs found in the code and their fixes can also be found in the Excel document.
 
 ## Deployment
 
