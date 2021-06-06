@@ -142,15 +142,32 @@ A mock-up of how the site will be laid out is available here via [Wire Frames](r
 
 As shown in the link, the database structure is separated into 3 collections,
 
- > Users
- > Book Reviews
- > Comments
+ - Users 
+ - Book Reviews
+ - Comments
 
-Users sign up with a name, email, password and username, this is saved in MongoDB with a unique identifier number or 'primary key'.
+Users sign up with a name, password and username, this is saved in MongoDB with a unique identifier number or 'primary key'.
 
-Book reviews hold book title, author, the review, the primary key of the review creator and are stored with a primary key. 
+Book reviews hold book title, author, the review, the primary key of the review, the creator of the reviews username, a url to the book image and an affiliated link.
 
-Comments hold the comment string, a date stamp (to help order the posts) the comment creator's primary key and the primary key of the book they commented on.
+Comments hold the comment title, the comment, a date stamp, the comment creator's username and the primary key of the book they commented on along with the primary key of the comment.
+
+#### Database Dictionary Examples: 
+
+All data is stored on the database in dictionaries:
+
+Users :
+
+![users-dictionary](read-me/users-dictionary.jpg)
+
+Book Reviews :
+
+![book-dictionary](read-me/book-dictionary.png)
+
+Comments : 
+
+![comment-dictionary](read-me/comment-dictionary.png)
+
 
 ### Security
 
