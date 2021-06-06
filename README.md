@@ -134,11 +134,11 @@ All forms will protect against empty inputs and input format criteria where appl
 Successful uploads and deletion of data will be conveyed to the user with flash messages.
 
 ### Wireframes
-A mock-up of how the site will be laid out is available here via [Wire Frames](TBC).
+A mock-up of how the site will be laid out is available here via [Wire Frames](read-me/booknook.pdf).
 
 ### Database Structure
 
-[Database Structure](TBA)
+![Database Structure](read-me/database-diagram.png)
 
 As shown in the link, the database structure is separated into 3 collections,
 
@@ -282,6 +282,7 @@ TBA
 - [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools) Used to test and optimize the site
 - [Random Key Gen](https://randomkeygen.com/) to great random secret keys
 - [Favicon Generator](https://www.favicon-generator.org/)
+- [Database Diagram](https://dbdiagram.io/)
 
 ### Sources
 
