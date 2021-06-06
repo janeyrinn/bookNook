@@ -82,8 +82,8 @@ def login():
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
     """ retrieves session users username from db
-    POST: renders profile.html of user
-    GET: renders login.html """
+    renders profile.html of user
+    if the user isn't logged in it renders login.html """
     user = mongo.db.users.find_one({"username": session["user"]})
     comment = list(mongo.db.comments.find(
         {"comment_author": session["user"]}).sort('comment_datetime', -1))
