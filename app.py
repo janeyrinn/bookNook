@@ -41,13 +41,13 @@ def sign_up():
             flash('username already exists')
             return redirect(url_for('sign_up'))
 
-        sign_up = {
+        register = {
             "firstname": request.form.get("firstname").lower(),
             "lastname": request.form.get("lastname").lower(),
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
-        mongo.db.users.insert_one(sign_up)
+        mongo.db.users.insert_one(register)
 
         session["user"] = request.form.get("username").lower()
         flash("you are successfully signed up")
@@ -61,34 +61,27 @@ def login():
     """ logs an existing user into their profile
     POST: renders profile.html of user
     GET: renders login.html """
-    if request.method == "POST":
-        signed_up_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+    if request.method != "POST":
+        return render_template("login.html")
 
-        if signed_up_user:
-            if check_password_hash(
-                signed_up_user["password"], request.form.get("password")
-            ):
-                session["user"] = request.form.get("username").lower()
-                flash("Welcome back, {}".format(
-                    request.form.get("username")))
-                return redirect(url_for(
-                    "profile", username=session["user"]))
-            else:
-                flash("Oops check your username/password and try again")
-                return redirect(url_for("login"))
+    signed_up_user = mongo.db.users.find_one(
+        {"username": request.form.get("username").lower()})
 
-        else:
-            flash("Oops check your username/password and try again")
-            return redirect(url_for("login"))
-
-    return render_template("login.html")
+    if signed_up_user and check_password_hash(
+            signed_up_user["password"], request.form.get("password")
+    ):
+        session["user"] = request.form.get("username").lower()
+        flash("Welcome back, {}".format(
+            request.form.get("username")))
+        return redirect(url_for(
+                "profile", username=session["user"]))
+    flash("Oops check your username/password and try again")
+    return redirect(url_for("login"))
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
     """ retrieves session users username from db
-    Args: <username> signed up users username
     POST: renders profile.html of user
     GET: renders login.html """
     user = mongo.db.users.find_one({"username": session["user"]})
@@ -141,8 +134,8 @@ def review(book_id):
         return render_template(
             "review.html", book=book, comment=comment,
             related_comment=related_comment)
-    else:
-        return render_template('404.html')
+
+    return render_template('404.html')
 
 
 @app.route("/add_review", methods=["GET", "POST"])
@@ -150,24 +143,23 @@ def add_review():
     """ adds new book review to db
     GET: renders add_review for signed up users or login for anon user
     POST: successful submission renders browse.html """
-    if 'user' in session:
-        if request.method == "POST":
-            book = {
-                "book_title": request.form.get("book_title").lower(),
-                "book_author": request.form.get("book_author").lower(),
-                "book_review": request.form.get("book_review").lower(),
-                "book_link": request.form.get("book_link"),
-                "book_img": request.form.get("book_img"),
-                "post_author": session["user"]
-            }
-            mongo.db.books.insert_one(book)
-            flash("Your book review was successfully added")
-            return redirect(url_for('browse'))
-
-        return render_template("add_review.html")
-    else:
+    if 'user' not in session:
         flash('please login to complete this request')
         return redirect(url_for('login'))
+    if request.method == "POST":
+        book = {
+            "book_title": request.form.get("book_title").lower(),
+            "book_author": request.form.get("book_author").lower(),
+            "book_review": request.form.get("book_review").lower(),
+            "book_link": request.form.get("book_link"),
+            "book_img": request.form.get("book_img"),
+            "post_author": session["user"]
+        }
+        mongo.db.books.insert_one(book)
+        flash("Your book review was successfully added")
+        return redirect(url_for('browse'))
+
+    return render_template("add_review.html")
 
 
 @app.route("/edit_review/<book_id>", methods=["GET", "POST"])
@@ -178,24 +170,24 @@ def edit_review(book_id):
     POST: Revises entry and renders browse.html """
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
 
-    if 'user' in session:
-        if request.method == "POST":
-            revised = {
-                "book_title": request.form.get("book_title").lower(),
-                "book_author": request.form.get("book_author").lower(),
-                "book_review": request.form.get("book_review").lower(),
-                "book_link": request.form.get("book_link"),
-                "book_img": request.form.get("book_img"),
-                "post_author": session["user"]
-            }
-            mongo.db.books.update({"_id": ObjectId(book_id)}, revised)
-            flash("Your book review was successfully updated")
-            return redirect(url_for("browse"))
-
-        return render_template("edit_review.html", book=book)
-    else:
+    if 'user' not in session:
         flash('please login to complete this request')
         return redirect(url_for('login'))
+
+    if request.method == "POST":
+        revised = {
+            "book_title": request.form.get("book_title").lower(),
+            "book_author": request.form.get("book_author").lower(),
+            "book_review": request.form.get("book_review").lower(),
+            "book_link": request.form.get("book_link"),
+            "book_img": request.form.get("book_img"),
+            "post_author": session["user"]
+        }
+        mongo.db.books.update({"_id": ObjectId(book_id)}, revised)
+        flash("Your book review was successfully updated")
+        return redirect(url_for("browse"))
+
+    return render_template("edit_review.html", book=book)
 
 
 @app.route("/delete_review/<book_id>")
@@ -207,9 +199,9 @@ def delete_review(book_id):
         mongo.db.books.remove({"_id": ObjectId(book_id)})
         flash("your review was successfully deleted")
         return redirect(url_for("browse"))
-    else:
-        flash('please login to complete this request')
-        return redirect(url_for('login'))
+
+    flash('please login to complete this request')
+    return redirect(url_for('login'))
 
 
 @app.route("/add_comment/<book_id>", methods=["GET", "POST"])
@@ -218,25 +210,24 @@ def add_comment(book_id):
     Args: <book_id> id of book review
         Returns: GET renders add_comment.html
     POST on successful submission renders browse.html """
-    if 'user' in session:
-        if request.method == "POST":
-            comment = {
-                "book_id": book_id,
-                "comment_datetime": datetime.datetime.now().strftime(
-                    '%d %B %Y - %H:%M:%S'),
-                "comment_title": request.form.get("comment_title").lower(),
-                "comment": request.form.get("comment").lower(),
-                "comment_author": session["user"]
-            }
-            mongo.db.comments.insert_one(comment)
-            flash("your comment was successfully added")
-            return redirect(url_for("browse"))
-
-        book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-        return render_template("add_comment.html", book=book)
-    else:
+    if 'user' not in session:
         flash('please login to complete this request')
         return redirect(url_for('login'))
+    if request.method == "POST":
+        comment = {
+            "book_id": book_id,
+            "comment_datetime": datetime.datetime.now().strftime(
+                '%d %B %Y - %H:%M:%S'),
+            "comment_title": request.form.get("comment_title").lower(),
+            "comment": request.form.get("comment").lower(),
+            "comment_author": session["user"]
+        }
+        mongo.db.comments.insert_one(comment)
+        flash("your comment was successfully added")
+        return redirect(url_for("browse"))
+
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    return render_template("add_comment.html", book=book)
 
 
 @app.route('/delete_comment/<comment_id>')
@@ -248,9 +239,9 @@ def delete_comment(comment_id):
         mongo.db.comments.remove({'_id': ObjectId(comment_id)})
         flash('your comment was successfully deleted')
         return redirect(url_for('browse'))
-    else:
-        flash('please login to complete this request')
-        return redirect(url_for('login'))
+
+    flash('please login to complete this request')
+    return redirect(url_for('login'))
 
 
 # code found in flask documentation
