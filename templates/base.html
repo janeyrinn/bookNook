@@ -34,7 +34,7 @@
                     <li><a href="{{ url_for('browse') }}">browse</a></li>
                     {% if session.user %}
                     <li><a href="{{ url_for('add_review') }}">add review</a></li>
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">profile</a></li>
+                    <li><a href="{{ url_for('profile') }}">profile</a></li>
                     <li><a href="{{ url_for('logout') }}">log out</a></li>
                     {% else %}
                     <li><a href="{{ url_for('sign_up') }}">sign up</a></li>
