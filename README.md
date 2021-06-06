@@ -173,6 +173,8 @@ Comments :
 
 During development sensitive data, such as database configuration variables, were saved in an [env.py](https://pypi.org/project/env.py/) file. This file  is not uploaded to GitHub for security purposes. These details are stored on Heroku once the site has reached the deployment stage. 
 
+The users accounts are protected with password hashing avaialble via [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/utils/).
+
 ### Color Scheme
 ![Color Swatch](read-me/color-swatch.png)
 The above color swatch shows a guideline for the color scheme of the site. 
@@ -276,14 +278,15 @@ TBA
 
  ### Languages
 
- - [HTML5](https://www.w3schools.com/html/html_intro.asp)
- - [CSS3](https://www.w3schools.com/css/css_intro.asp)
- - [JavaScript](https://www.w3schools.com/js/js_intro.asp)
- - [Python](https://www.w3schools.com/python/python_intro.asp)
+ - [HTML5](https://www.w3schools.com/html/html_intro.asp) main structure of pages and templates
+ - [CSS3](https://www.w3schools.com/css/css_intro.asp) for custom styling
+ - [JavaScript](https://www.w3schools.com/js/js_intro.asp) and [JQuery](https://jquery.com/) for interactive elements
+ - [Python](https://www.w3schools.com/python/python_intro.asp) for backend, a full list of the modules used can be found in the requirements.txt file
+ - [MongoDB](https://cloud.mongodb.com/) for the storage of the data.
 
   ### Frameworks and Libraries
 
-- [Flask](https://flask.palletsprojects.com/en/2.0.x/) functionality
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/) functionality of the backend.
 - [Materialize](https://materializecss.com/) Styling and components
 - [Font Awesome](https://fontawesome.com/v4.7.0/) Used for icons
 - [Google Fonts](https://fonts.google.com/) Used to import fonts.
