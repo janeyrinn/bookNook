@@ -105,33 +105,33 @@ A registered users goals are in addition to the above mentioned user goals.
 
 **Skeleton**
 
-This site will be made up of 8 different templates which will feed into a base template, creating what appears to be 8 seperate pages.
+This site will be made up of 11 different templates which will feed into a base template, creating what appears to be 11 seperate pages.
 The pages will all have a 'sticky' top nav bar displaying menu items either in text or will be an icon with a slide out menu on mobile devices.
 All pages will have a footer displaying copywrite information and social icons.
 
 **Information Architecture**
 
-The nav bar to an anon user will display a tab to search and an option to login/register, to a logged in user the search tab will display along side an 'add' tab (to add a book) and next to that a profile tab and logout tab.
+The nav bar to an anon user will display a tab to browse and an option to login/sign-up, to a logged in user the broswe tab will display along side an 'add' tab (to add a book) and next to that a profile tab and logout tab.
 
 The landing page will consist of a large hero image with a text introduction of the site's offering or purpose.
 
 Login, registration, add/edit a book and add comment pages will all consist of forms with varying inputs dependant on the purpose of the form.
 
-The profile page will display user information and book reviews they have uploaded. These reviews will display on cards with a button to edit
+The profile page will display user information, comments and book reviews they have uploaded. These reviews will display on cards with a button to edit, the comments will display on plain cards with an option to delete.
 
-The search page will display a search bar and below that existing books will display on cards. Each card will have a link to view the review.
+The browse page will display a search bar and below that existing books will display on cards. Each card will have a link to view the review and an edit button to the review author when logged in.
 
-The review page will display a books title, image, author, link to purchase on a third party site and a short review. Below the book review a section holding comments left by registered users will be displayed on collapsable cards.
+The review page will display a books title, image, author, link to purchase on a third party site, a short review and to a logged in user a button linking to an 'add comment' feature. Below the book review a section holding comments left by registered users will be displayed on cards, a delete button will display on the comments a logged in user has uploaded themselves.
 
 **Interaction Design**
 
 The nav bar items will highlight on hover.
 
-The user will be able to interact with the data on the search page by searching for a title, books will display below the search bar if found or a flash message with an error if not found.
+The user will be able to interact with the data on the search page by searching for a title or author, books will display below the search bar if found or a message with an error if not found.
 
-All forms will protect against empty inputs and input format criteria where applicable with the user of colour and/or error messages.
+All forms will protect against empty inputs and input format criteria where applicable/possible with the user of colour and/or error messages.
 
-Successful uploads and deletion of data will be conveyed to the user with flash messages.
+Successful uploads and deletion of data will be conveyed to the user with flash messages, similarly with loggin in and logging out.
 
 ### Wireframes
 A mock-up of how the site will be laid out is available here via [Wire Frames](read-me/booknook.pdf).
@@ -140,7 +140,7 @@ A mock-up of how the site will be laid out is available here via [Wire Frames](r
 
 ![Database Structure](read-me/database-diagram.png)
 
-As shown in the link, the database structure is separated into 3 collections,
+As shown in the diagram, the database structure is separated into 3 collections,
 
  - Users 
  - Book Reviews
@@ -179,7 +179,7 @@ The users accounts are protected with password hashing avaialble via [Werkzeug](
 ![Color Swatch](read-me/color-swatch.png)
 The above color swatch shows a guideline for the color scheme of the site. 
 
-Colors are brand colours that have been adopted for their strong visual contrast in an atempt to make all content as easily consumable and suitable for visually impared users as possible.
+Colors are brand colours that have been adopted for their strong visual contrast in an attempt to make all content as easily consumable and suitable for visually impared users as possible.
 
 ### Typography
 
@@ -262,16 +262,18 @@ TBA
         - an error message for an unsuccessfull search
         - a section displaying existing books on cards
         - each book card will have a link to its review page
+        - each book card will have a link to edit the review if the user is the author
 
 11. The review page will have:
 
     - a section displaying the book information and review
     - a section displaying users comments related to the displayed book
+    - a button linking to a third party online shop selling the book
     - logged in members will see an option to delete their comments or to add a new comment
 
 12. The add comments page will have:
 
-    - a form to add a comment
+    - a form to add a comment, with prepopulated fields relating to the book they were viewing, a comment title field and a space to add a comment
     - a submission and cancel button
 
  ## Technologies
@@ -325,6 +327,10 @@ The syntax and validity of the HTML and JavaScript code used were passed through
 The syntax and validity of the CSS code was passed throught the below validator and passed without error but did show warnings related to vendor prefixes.I have been advised by tutor support that this is fine for the submission of the MS3 and should not affect the outcome of the submission as it is unavoidable with the current version of this validator.
 
 1. [W3c Jigsaw](https://jigsaw.w3.org/css-validator/) used to validate CSS code.
+
+The python was run with pylint in the terminal. Errors were ammended to bring the score to 9.91/10. The remaining error "app.py:12:4: W0611: Unused import env (unused-import)" could not be avoided due to the set up of the security features, the code is PEP8 compliant.
+
+1. [Pylint](https://pypi.org/project/pylint/)
 
 ### Testing Premise
 
