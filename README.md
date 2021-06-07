@@ -379,9 +379,22 @@ are outside the scope of the assignment and the developers skill set at this tim
 
 Bugs found in the code and their fixes can also be found in the Excel document.
 
+### User Stories
+![User Stories](testing/user-stories.png)
+
+### Features
+![Features](testing/features.png)
+
+### Bugs & Fixes
+
+During the course of the project internet connectivity was a substantial issue and may have caused commit's to be duplicated.
+
+![Bugs & Fixes](testing/bugs.png)
+
+
 ## Deployment
 
-This application was created and controlled using GitHub and GitPod workspace.
+This application was created and controlled using GitHub and GitPod workspace. 
 
 A Code Institute template was used for the initial creation of this repository which can be found [here](https://github.com/Code-Institute-Org/gitpod-full-template).
 To use this template to create a similar project simply click 'Use Template' at the top of the repository. You will be directed to name your own
@@ -440,3 +453,11 @@ The 'repo' should then open and you can begin working on it by selecting the gre
 
 ### Content
 1. All review content was taken from [The Book Depository](https://www.bookdepository.com/) 
+
+## Acknowledgements
+
+Special thanks to:
+
+1. The tutors at Code Institute for their guidance and support.
+2. My mentor Rohit Sharma for his guidance and advice throughout.
+3. My peers on the slack community for assistance with testing and guidance throughout the project.
