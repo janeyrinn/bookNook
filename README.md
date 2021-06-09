@@ -21,7 +21,6 @@ The live site can be accessed [*here*](https://booknook-app.herokuapp.com/).
         * [Typography](#typography)
         * [Imagery](#imagery)
         * [Design Limitations](#design-limitations)
-        * [Design Differences from Conception](#design-differences-from-conception)
 3. [Features](#features)
     * [Existing Features](#existing-features)
 4. [Technologies](#technologies)
@@ -204,10 +203,6 @@ A future features I would like to incorrporate are:
 
 >  * an option to update and edit user information, to reset forgotten passwords
 >  * a totals table on the users profile page that shows total afffiliated links clicked by other users and possible revenue earned
-
-### Design Differences from Conception
-
-TBA
 
 ## Features
 
