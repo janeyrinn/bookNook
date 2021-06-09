@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="book reviews and recomendations, comment on reviews and find or share affiliated links to books">
+    <meta name="description"
+        content="book reviews and recomendations, comment on reviews and find or share affiliated links to books">
     <meta name="keywords"
-      content="book reviews, reading community, share books, affiliated links, read, literary, author, bestsellers, classic reads">
+        content="book reviews, reading community, share books, affiliated links, read, literary, author, bestsellers, classic reads">
     <meta name="author" content="Jane Rinn">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -61,8 +62,8 @@
         </ul>
     </header>
     <main>
-    <!--Start of section: holds flash messages-->
-    
+        <!--Start of section: holds flash messages-->
+
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
@@ -72,9 +73,9 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
-    
 
-    <!--Start of main content: holds templates-->
+
+        <!--Start of main content: holds templates-->
 
         {% block content %}
         {% endblock %}

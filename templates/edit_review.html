@@ -16,7 +16,8 @@
                         <div class="input-field col s12">
                             <i class="fas fa-book prefix black-text"></i>
                             <input id="book_title" name="book_title" type="text" class="validate black-text"
-                                minlength="1" value="{{ book.book_title }}" pattern=".*\S+.*" title="Can not be blank" maxlength="100" required>
+                                minlength="1" value="{{ book.book_title }}" pattern=".*\S+.*" title="Can not be blank"
+                                maxlength="100" required>
                             <label for="book_title">book title</label>
                         </div>
                     </div>
@@ -24,8 +25,9 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="fas fa-user-edit prefix black-text"></i>
-                            <input id="book_author" name="book_author" pattern=".*\S+.*" title="Can not be blank" type="text" minlength="1" maxlength="30"
-                                class="validate black-text" value="{{ book.book_author }}" required>
+                            <input id="book_author" name="book_author" pattern=".*\S+.*" title="Can not be blank"
+                                type="text" minlength="1" maxlength="30" class="validate black-text"
+                                value="{{ book.book_author }}" required>
                             <label for="book_author">author</label>
                         </div>
                     </div>
@@ -42,8 +44,8 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="fas fa-image prefix black-text"></i>
-                            <input id="book_img" name="book_img" value="{{ book.book_img }}" pattern=".*\S+.*" title="Can not be blank" type="url" class="validate"
-                                required>
+                            <input id="book_img" name="book_img" value="{{ book.book_img }}" pattern=".*\S+.*"
+                                title="Can not be blank" type="url" class="validate" required>
                             <label for="book_img">add url to book image</label>
                         </div>
                     </div>
@@ -51,8 +53,8 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="fas fa-image prefix black-text"></i>
-                            <input id="book_link" name="book_link" pattern=".*\S+.*" title="Can not be blank" value="{{ book.book_link }}" type="url"
-                                class="validate" required>
+                            <input id="book_link" name="book_link" pattern=".*\S+.*" title="Can not be blank"
+                                value="{{ book.book_link }}" type="url" class="validate" required>
                             <label for="book_link">link to buy</label>
                         </div>
                     </div>
