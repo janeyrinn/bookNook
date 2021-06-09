@@ -203,6 +203,9 @@ A future features I would like to incorrporate are:
 
 >  * an option to update and edit user information, to reset forgotten passwords
 >  * a totals table on the users profile page that shows total afffiliated links clicked by other users and possible revenue earned
+>  * a feature to stop duplicate titles being uploaded
+>  * a feature to prevent the textarea in the forms from accepting empty space
+>  * Javascript to create a typing effect on the intro text on the home page, this was originally in the project and functioning but was throwing an error in the console as the function had to be in the body of the HTML and was irrelevant on other pages so was not suitable for the templating feature. 
 
 ## Features
 
@@ -223,7 +226,7 @@ A future features I would like to incorrporate are:
         - The logo will route back to the home page
         - Menu options will change to red on hover
         - On mobile devices, the menu items will switch to a toggle button and slide in from the right when button is clicked
-        - The menu items will have the same styling in the toggle view
+        - The mobile nav will not have 'on-hover' styling
         - Anon users will see log in, sign up and browse
         - Registered users will see browse, add review, profile and logout
 
@@ -234,7 +237,7 @@ A future features I would like to incorrporate are:
 
 7. The login/register page will have:
 
-        - A form requesting user information and submission button
+        - A form requesting user information (name, username & password) and a submission button
 
 8. The profile page will have: 
 
@@ -252,7 +255,7 @@ A future features I would like to incorrporate are:
 
 10. The browse page will have a:
 
-        - search bar allowing users to search by title
+        - search bar allowing users to search by title and author
         - reset button to clear the last search
         - an error message for an unsuccessfull search
         - a section displaying existing books on cards
@@ -292,14 +295,14 @@ A future features I would like to incorrporate are:
 
 - [Balsamiq](https://balsamiq.com/) Used to create wireframes/mock-up during the planning & design process
 - [Git Hub](https://github.com/about) Used to store, version control, and to share the project's code
-- [Git/GitPod](https://www.gitpod.io/#:~:text=Gitpod%20is%20a%20multi%2Dservice,their%20own%20dedicated%20K8s%20deployment.) Code, build, debug and run K8s applications    entirely in the cloud.
+- [Git/GitPod](https://www.gitpod.io/#:~:text=Gitpod%20is%20a%20multi%2Dservice,their%20own%20dedicated%20K8s%20deployment.) Code, build, debug and run applications    entirely in the cloud.
 - [Canva](https://www.canva.com/) For the creation of the logo
 - [Adobe Color Wheel](https://color.adobe.com) Image gradient feature was used to extract colors used in the logo and build a colour scheme
 - [Am I Responsive](http://ami.responsivedesign.is/) Used to check responsivity of code and display the mock-up in the documentation
 - [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools) Used to test and optimize the site
 - [Random Key Gen](https://randomkeygen.com/) to great random secret keys
-- [Favicon Generator](https://www.favicon-generator.org/)
-- [Database Diagram](https://dbdiagram.io/)
+- [Favicon Generator](https://www.favicon-generator.org/) to create the favicon
+- [Database Diagram](https://dbdiagram.io/) to create the database schema diagram
 
 ### Sources
 
