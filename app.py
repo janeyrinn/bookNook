@@ -238,7 +238,7 @@ def delete_comment(comment_id):
     if 'user' in session:
         mongo.db.comments.remove({'_id': ObjectId(comment_id)})
         flash('your comment was successfully deleted')
-        return redirect(url_for('browse'))
+        return redirect(url_for('profile'))
 
     flash('please login to complete this request')
     return redirect(url_for('login'))
