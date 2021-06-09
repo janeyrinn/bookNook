@@ -378,16 +378,21 @@ are outside the scope of the assignment and the developers skill set at this tim
 Bugs found in the code and their fixes can also be found in the Excel document.
 
 ### User Stories
-![User Stories](testing/user-stories.png)
+
+#### User Stories
+![User Stories One](testing/userstories-one.png)
+![User Stories Two](testing/userstories-two.png)
 
 ### Features
-![Features](testing/features.png)
+![Features One](testing/features-one.png)
+![Features Two](testing/features-two.png)
 
 ### Bugs & Fixes
 
 During the course of the project internet connectivity was a substantial issue and may have caused commit's to be duplicated.
 
-![Bugs & Fixes](testing/bugs.png)
+![Bugs & Fixes One](testing/bugs-one.png)
+![Bugs & Fixes Two](testing/bugs-two.png)
 
 
 ## Deployment
