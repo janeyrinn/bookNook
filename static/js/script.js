@@ -1,4 +1,4 @@
-// initializes book icon to open sidenav: 
+// initializes book icon to open sidenav, Materialize: 
 $(document).ready(function () {
   $('.sidenav').sidenav({
     edge: "right"
