@@ -56,89 +56,89 @@ def sign_up():
     return render_template("sign_up.html")
 
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     """ logs an existing user into their profile
     POST: renders profile.html of user
     GET: renders login.html """
-    if request.method != "POST":
-        return render_template("login.html")
+    if request.method != 'POST':
+        return render_template('login.html')
 
     signed_up_user = mongo.db.users.find_one(
-        {"username": request.form.get("username").lower()})
+        {'username': request.form.get('username').lower()})
 
     if signed_up_user and check_password_hash(
-            signed_up_user["password"], request.form.get("password")
+            signed_up_user['password'], request.form.get('password')
     ):
-        session["user"] = request.form.get("username").lower()
-        flash("Welcome back, {}".format(
-            request.form.get("username")))
+        session['user'] = request.form.get('username').lower()
+        flash('Welcome back, {}'.format(
+            request.form.get('username')))
         return redirect(url_for(
-                "profile", username=session["user"]))
+                'profile', username=session['user']))
     flash("Oops check your username/password and try again")
     return redirect(url_for("login"))
 
 
-@app.route("/profile", methods=["GET", "POST"])
+@app.route('/profile', methods=['GET', 'POST'])
 def profile():
     """ retrieves session users username from db
     renders profile.html of user
     if the user isn't logged in it renders login.html """
-    user = mongo.db.users.find_one({"username": session["user"]})
+    user = mongo.db.users.find_one({'username': session['user']})
     comment = list(mongo.db.comments.find(
-        {"comment_author": session["user"]}).sort('comment_datetime', -1))
-    books = list(mongo.db.books.find({"post_author": session["user"]}))
+        {'comment_author': session['user']}).sort('comment_datetime', -1))
+    books = list(mongo.db.books.find({'post_author': session['user']}))
     if session["user"]:
         return render_template(
-            "profile.html", user=user, comment=comment, books=books)
+            'profile.html', user=user, comment=comment, books=books)
 
-    return redirect(url_for("login"))
+    return redirect(url_for('login'))
 
 
-@app.route("/logout")
+@app.route('/logout')
 def logout():
     """ removes user session cookies which 'logs them out' of session
     GET: renders login.html """
     flash("you've been logged out successfully, come back soon!")
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for('login'))
 
 
-@app.route("/browse")
+@app.route('/browse')
 def browse():
     """ renders browse template
     GET:  renders browse.html """
     books = list(mongo.db.books.find())
-    return render_template("browse.html", books=books)
-
-
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    """ retrieves text queries from the db
-    GET: renders data sets with matching text in title/author fields """
-    query = request.form.get("query")
-    books = list(mongo.db.books.find({"$text": {"$search": query}}))
     return render_template('browse.html', books=books)
 
 
-@app.route("/review/<book_id>")
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    """ retrieves text queries from the db
+    GET: renders data sets with matching text in title/author fields """
+    query = request.form.get('query')
+    books = list(mongo.db.books.find({'$text': {'$search': query}}))
+    return render_template('browse.html', books=books)
+
+
+@app.route('/review/<book_id>')
 def review(book_id):
     """ retrieves selected book review and related
     comments(sorted by date) from db"""
-    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    book = mongo.db.books.find_one({'_id': ObjectId(book_id)})
     comment = list(mongo.db.comments.find().sort('comment_datetime', -1))
     related_comment = list(mongo.db.comments.find(
-        {"book_id": book_id}).sort('comment_datetime', -1)
+        {'book_id': book_id}).sort('comment_datetime', -1)
     )
     if book:
         return render_template(
-            "review.html", book=book, comment=comment,
+            'review.html', book=book, comment=comment,
             related_comment=related_comment)
 
     return render_template('404.html')
 
 
-@app.route("/add_review", methods=["GET", "POST"])
+@app.route('/add_review', methods=['GET', 'POST'])
 def add_review():
     """ adds new book review to db
     GET: renders add_review for signed up users or login for anon user
@@ -146,7 +146,7 @@ def add_review():
     if 'user' not in session:
         flash('please login to complete this request')
         return redirect(url_for('login'))
-    if request.method == "POST":
+    if request.method == 'POST':
         book = {
             "book_title": request.form.get("book_title").lower(),
             "book_author": request.form.get("book_author").lower(),
@@ -159,22 +159,22 @@ def add_review():
         flash("Your book review was successfully added")
         return redirect(url_for('browse'))
 
-    return render_template("add_review.html")
+    return render_template('add_review.html')
 
 
-@app.route("/edit_review/<book_id>", methods=["GET", "POST"])
+@app.route('/edit_review/<book_id>', methods=['GET', 'POST'])
 def edit_review(book_id):
     """ revises a db entry
     Args: <book_id> id of book review
     GET: if user logged in retrieves their review for editing
     POST: Revises entry and renders browse.html """
-    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    book = mongo.db.books.find_one({'_id': ObjectId(book_id)})
 
     if 'user' not in session:
         flash('please login to complete this request')
         return redirect(url_for('login'))
 
-    if request.method == "POST":
+    if request.method == 'POST':
         revised = {
             "book_title": request.form.get("book_title").lower(),
             "book_author": request.form.get("book_author").lower(),
@@ -185,12 +185,12 @@ def edit_review(book_id):
         }
         mongo.db.books.update({"_id": ObjectId(book_id)}, revised)
         flash("Your book review was successfully updated")
-        return redirect(url_for("browse"))
+        return redirect(url_for('browse'))
 
-    return render_template("edit_review.html", book=book)
+    return render_template('edit_review.html', book=book)
 
 
-@app.route("/delete_review/<book_id>")
+@app.route('/delete_review/<book_id>')
 def delete_review(book_id):
     """ removes a review from the db
     Args: <book_id> id of book review
@@ -198,13 +198,13 @@ def delete_review(book_id):
     if 'user' in session:
         mongo.db.books.remove({"_id": ObjectId(book_id)})
         flash("your review was successfully deleted")
-        return redirect(url_for("browse"))
+        return redirect(url_for('browse'))
 
     flash('please login to complete this request')
     return redirect(url_for('login'))
 
 
-@app.route("/add_comment/<book_id>", methods=["GET", "POST"])
+@app.route('/add_comment/<book_id>', methods=['GET', 'POST'])
 def add_comment(book_id):
     """ allows logged in user to upload a comment
     Args: <book_id> id of book review
@@ -213,7 +213,7 @@ def add_comment(book_id):
     if 'user' not in session:
         flash('please login to complete this request')
         return redirect(url_for('login'))
-    if request.method == "POST":
+    if request.method == 'POST':
         comment = {
             "book_id": book_id,
             "comment_datetime": datetime.datetime.now().strftime(
@@ -224,10 +224,10 @@ def add_comment(book_id):
         }
         mongo.db.comments.insert_one(comment)
         flash("your comment was successfully added")
-        return redirect(url_for("browse"))
+        return redirect(url_for('browse'))
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    return render_template("add_comment.html", book=book)
+    return render_template('add_comment.html', book=book)
 
 
 @app.route('/delete_comment/<comment_id>')
