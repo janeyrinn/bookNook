@@ -32,6 +32,8 @@ The live site can be accessed [*here*](https://booknook-app.herokuapp.com/).
     * [Code Validity](#code-validity)
     * [Testing Premise](#testing-premise)
     * [Bugs and Fixes](#bugs-and-fixes)
+    * [Functionality](#functionality)
+    * [Final Comments](#final-comments)
 6. [Deployment](#deployment)
     * [Deployment via Heroku](#deployment-via-heroku)
     * [Make a clone on GitPod](#make-a-clone-on-gitpod)
@@ -368,7 +370,7 @@ Testing was done on three browsers; Chome v88, MicroSoft Edge v88 and FireFox v8
 > - i Phone XR (414 x 896)
 > - Laptop (1440 x 900)
 
-Testing was documented using Microsoft Excel and the full spreadsheet can be found [*here*](testing/testing.xlsx).
+Testing was documented using Microsoft Excel and the full spreadsheet can be found [*here*](testing/testing.xlsx). Bugs found in the code and their fixes can also be found in the Excel document.
 
 The live site  was also analysed using Google Developer Tools Lighthouse feature, where it scored highly for accessibility and best practices.
 The SEO of the site scored in the median range due to links not being 'crawlable'. Further adjustments to improve this rating
@@ -376,7 +378,6 @@ are outside the scope of the assignment and the developers skill set at this tim
 
 ![Lighthouse Results](testing/lighthouse.png)
 
-Bugs found in the code and their fixes can also be found in the Excel document.
 
 ### User Stories
 
@@ -390,11 +391,18 @@ Bugs found in the code and their fixes can also be found in the Excel document.
 
 ### Bugs & Fixes
 
-During the course of the project internet connectivity was a substantial issue and may have caused commit's to be duplicated.
-
 ![Bugs & Fixes One](testing/bugs-one.png)
 ![Bugs & Fixes Two](testing/bugs-two.png)
 
+### Functionality
+
+![Functionality](testing/functionality-one.png)
+![Functionality](testing/functionality-two.png)
+![Functionality](testing/functionality-three.png)
+
+
+### Final Comments
+During the course of the project internet connectivity was a substantial issue and may have caused commit's to be duplicated.
 
 ## Deployment
 
