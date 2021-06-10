@@ -264,15 +264,15 @@ A future features I would like to incorrporate are:
 
 11. The review page will have:
 
-    - a section displaying the book information and review
-    - a section displaying users comments related to the displayed book
-    - a button linking to a third party online shop selling the book
-    - logged in members will see an option to delete their comments or to add a new comment
+        - a section displaying the book information and review
+        - a section displaying users comments related to the displayed book
+        - a button linking to a third party online shop selling the book
+        - logged in members will see an option to delete their comments or to add a new comment
 
 12. The add comments page will have:
 
-    - a form to add a comment, with prepopulated fields relating to the book they were viewing, a comment title field and a space to add a comment
-    - a submission and cancel button
+        - a form to add a comment, with prepopulated fields relating to the book they were viewing, a comment title field and a space to add a comment
+        - a submission and cancel button
 
  ## Technologies
 
