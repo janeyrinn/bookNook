@@ -33,11 +33,11 @@ The live site can be accessed [*here*](https://booknook-app.herokuapp.com/).
     * [Testing Premise](#testing-premise)
     * [Bugs and Fixes](#bugs-and-fixes)
     * [Functionality](#functionality)
-    * [Final Comments](#final-comments)
 6. [Deployment](#deployment)
     * [Deployment via Heroku](#deployment-via-heroku)
     * [Make a clone on GitPod](#make-a-clone-on-gitpod)
-7. [Credits](#credits)
+7. [Final Comments](#final-comments)
+8. [Credits](#credits)
     * [Images](#Images)
     * [Code](#Code)
     * [Content](#Content)
@@ -400,10 +400,6 @@ are outside the scope of the assignment and the developers skill set at this tim
 ![Functionality](testing/functionality-two.png)
 ![Functionality](testing/functionality-three.png)
 
-
-### Final Comments
-During the course of the project internet connectivity was a substantial issue and may have caused commit's to be duplicated.
-
 ## Deployment
 
 This application was created and controlled using GitHub and GitPod workspace. 
@@ -452,6 +448,9 @@ The 'repo' should then open and you can begin working on it by selecting the gre
 8. To view what the code will look like in a browser from here type "python3 app.py" into the console and hit enter or replace "app.py" with which ever you have named the app
 9. A pop-up will appear stating "A service is available on Port 8080" select Open Browser
 
+## Final Comments
+During the course of the project internet connectivity was a substantial issue and may have caused commit's to be duplicated. The links used in the reviews are in no way affiliated and no revenue is generated from the use of this site at this time, it is purely for the purpose of the third milestone project.
+
 ## Credits
 
 ### Images
@@ -460,7 +459,7 @@ The 'repo' should then open and you can begin working on it by selecting the gre
 2. Background image by [Pixabay](https://www.pexels.com/@pixabay) from [pexels.com](https://www.pexels.com)
 
 ### Code
-1. Error Handels 404 and 505 [Flask Documentaion](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/)
+1. Error Handels 404 and 500 [Flask Documentaion](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/)
 2. Scroll to top button, Java Script [w3schools](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp)
 
 ### Content
@@ -473,3 +472,4 @@ Special thanks to:
 1. The tutors at Code Institute for their guidance and support.
 2. My mentor Rohit Sharma for his guidance and advice throughout.
 3. My peers on the slack community for assistance with testing and guidance throughout the project.
+4. Special thanks to fellow student Harry Dillon, for his limitless patience, assistance and tutuoring through out this project.
