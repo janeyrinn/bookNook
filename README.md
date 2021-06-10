@@ -271,7 +271,8 @@ A future features I would like to incorrporate are:
 
 12. The add comments page will have:
 
-        - a form to add a comment, with prepopulated fields relating to the book they were viewing, a comment title field and a space to add a comment
+        - a form to add a comment, with prepopulated fields relating to the book they were viewing, 
+        a comment title field and a space to add a comment
         - a submission and cancel button
 
  ## Technologies
