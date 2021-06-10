@@ -472,4 +472,5 @@ Special thanks to:
 1. The tutors at Code Institute for their guidance and support.
 2. My mentor Rohit Sharma for his guidance and advice throughout.
 3. My peers on the slack community for assistance with testing and guidance throughout the project.
-4. Special thanks to fellow student Harry Dillon, for his limitless patience, assistance and tutuoring through out this project.
+4. Last but not least a huge thanks to fellow student Harry Dillon, 
+for his limitless patience, great attitude, testing assistance and tutuoring through out this project.
