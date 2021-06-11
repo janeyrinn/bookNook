@@ -31,13 +31,13 @@ The live site can be accessed [*here*](https://booknook-app.herokuapp.com/).
 5. [Testing](#testing)
     * [Code Validity](#code-validity)
     * [Testing Premise](#testing-premise)
-    * [Bugs and Fixes](#bugs-and-fixes)
     * [Functionality](#functionality)
+    * [Bugs and Fixes](#bugs-and-fixes)
+    * [Final Comments](#final-comments)
 6. [Deployment](#deployment)
     * [Deployment via Heroku](#deployment-via-heroku)
-    * [Make a clone on GitPod](#make-a-clone-on-gitpod)
-7. [Final Comments](#final-comments)
-8. [Credits](#credits)
+    * [Make a clone on GitPod](#make-a-clone-on-gitpod) 
+7. [Credits](#credits)
     * [Images](#Images)
     * [Code](#Code)
     * [Content](#Content)
@@ -344,6 +344,7 @@ The entire site was tested under the three premises of :
         > User Stories
         > Business Objective
         > Features
+        > Functionality - CRUD, Error Handeling, Security
 
 Testing was done on three browsers; Chome v88, MicroSoft Edge v88 and FireFox v83 on the below screen sizes:
 
@@ -393,16 +394,21 @@ are outside the scope of the assignment and the developers skill set at this tim
 ![Features One](testing/features-one.png)
 ![Features Two](testing/features-two.png)
 
-### Bugs & Fixes
-
-![Bugs & Fixes One](testing/bugs-one.png)
-![Bugs & Fixes Two](testing/bugs-two.png)
-
 ### Functionality
 
 ![Functionality](testing/functionality-one.png)
 ![Functionality](testing/functionality-two.png)
 ![Functionality](testing/functionality-three.png)
+
+### Bugs & Fixes
+
+![Bugs & Fixes One](testing/bugs-one.png)
+![Bugs & Fixes Two](testing/bugs-two.png)
+
+## Final Comments
+> * During the course of the project internet connectivity was a substantial issue and may have caused commit's to be duplicated.
+> * The links used in the reviews are in no way affiliated and no revenue is generated from the use of this site at this time, it is purely for the purpose of the third milestone project.
+> * There is an error in the console 'Uncaught TypeError' which is coming from imported library code, to fix this error is beyond the scope of the project at present. It is not interfering with the functionality of the project under the testing premises outlined above.
 
 ## Deployment
 
@@ -451,11 +457,6 @@ The 'repo' should then open and you can begin working on it by selecting the gre
 7. To install the required packages type pip install -r requirements.txt into the command line
 8. To view what the code will look like in a browser from here type "python3 app.py" into the console and hit enter or replace "app.py" with which ever you have named the app
 9. A pop-up will appear stating "A service is available on Port 8080" select Open Browser
-
-## Final Comments
-> * During the course of the project internet connectivity was a substantial issue and may have caused commit's to be duplicated.
-> * The links used in the reviews are in no way affiliated and no revenue is generated from the use of this site at this time, it is purely for the purpose of the third milestone project.
-> * There is an error in the console 'Uncaught TypeError' which is coming from imported library code, to fix this error is beyond the scope of the project at present. It is not interfering with the functionality of the project under the testing premises outlined above.
 
 ## Credits
 
