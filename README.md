@@ -453,7 +453,9 @@ The 'repo' should then open and you can begin working on it by selecting the gre
 9. A pop-up will appear stating "A service is available on Port 8080" select Open Browser
 
 ## Final Comments
-During the course of the project internet connectivity was a substantial issue and may have caused commit's to be duplicated. The links used in the reviews are in no way affiliated and no revenue is generated from the use of this site at this time, it is purely for the purpose of the third milestone project.
+> * During the course of the project internet connectivity was a substantial issue and may have caused commit's to be duplicated.
+> * The links used in the reviews are in no way affiliated and no revenue is generated from the use of this site at this time, it is purely for the purpose of the third milestone project.
+> * There is an error in the console 'Uncaught TypeError' which is coming from imported library code, to fix this error is beyond the scope of the project at present. It is not interfering with the functionality of the project under the testing premises outlined above.
 
 ## Credits
 
