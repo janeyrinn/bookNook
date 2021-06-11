@@ -456,7 +456,7 @@ During the course of the project internet connectivity was a substantial issue a
 ### Images
 
 1. Hero Image by [Luis Tosta](https://unsplash.com/@luis_tosta) from [unsplash.com](https://unsplash.com)
-2. Background image by [Pixabay](https://www.pexels.com/@pixabay) from [pexels.com](https://www.pexels.com)
+2. Background image by [Pixabay](https://www.pexels.com/photo/silhouette-of-man-247899/) from [pexels.com](https://www.pexels.com)
 
 ### Code
 1. Error Handels 404 and 500 [Flask Documentaion](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/)
