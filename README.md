@@ -89,6 +89,10 @@ A registered users goals are in addition to the above mentioned user goals.
 | login to a secure profile account | view and manage my uploads in one location |
 | comment on others book reviews | so that I can interact and advise community members |
 
+#### Business Objective / Admin User
+
+The business objective of the admin user is to create a platform to share their reviews and potentiallty earn money via affiliated links and learn of other books to read while engaging with the community they have created via the comments.
+
 ## Design
 
 ### Scope and Structure
